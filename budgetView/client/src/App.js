@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import Navbar from './components/Navbar';
+import React from 'react';
 
-class App extends Component {
+class Navbar extends React.Component {
   render() {
     return (
-      <div>
-        <Navbar />
-        <div className="container">
-          <h1>BudgetView</h1>
-        </div>
-      </div>
-    );
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">BudgetView -- Welcome to your Budgeting App!</a>
+        <form class="form-inline">
+          <button class="btn btn-outline-success my-2 mr-3 my-sm-0" type="submit">Message Center</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+      </nav>
+    )
   }
 }
 
-export default App;
+export default Navbar;
