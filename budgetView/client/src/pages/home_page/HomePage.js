@@ -6,10 +6,10 @@ import IncomeBoard from "./components/IncomeBoard";
 
 class HomePage extends Component {
   render() {
-    const customRowStyling = { marginLeft: 0 };
+    var customRowStyling = { marginLeft: 0 };
 
     return (
-      <Container className="body">
+      <Container>
         <Row style={customRowStyling}>
           <Col md="3">
             <IncomeBoard />
