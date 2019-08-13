@@ -7,7 +7,7 @@ class NewExpenseModal extends Component {
       <form>
         <h4 className="py-4">Add new expense category:</h4>
         <div className="form-group row px-4">
-          <label for="category-name" className="col-sm-3 col-form-label">
+          <label htmlFor="category-name" className="col-sm-3 col-form-label">
             Title:
           </label>
           <div className="col-sm-9">
@@ -20,8 +20,22 @@ class NewExpenseModal extends Component {
           </div>
         </div>
         <div className="form-group row px-4">
-          <label for="max-goal" className="col-sm-3 col-form-label">
-            Maximum Goal Spending Amount:
+          <label htmlFor="category-icon" className="col-sm-3 col-form-label">
+            Select icon:
+          </label>
+          <div className="col-sm-9">
+            <select className="form-control" id="category-icon">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div className="form-group row px-4">
+          <label htmlFor="max-goal" className="col-sm-3 col-form-label">
+            Maximum Goal:
           </label>
           <div className="col-sm-9">
             <input

@@ -7,7 +7,7 @@ class IncomeBoard extends Component {
   render() {
     return (
       <div className="income-board col-md-3 py-4 text-center">
-        <h4 className="py-3">Income Boards</h4>
+        <h4>Income Boards</h4>
 
           <div className="card my-2 mx-auto">
             <div className="card-body">
