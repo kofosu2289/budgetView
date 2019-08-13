@@ -25,11 +25,11 @@ class NewExpenseModal extends Component {
           </label>
           <div className="col-sm-9">
             <select className="form-control" id="category-icon">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>Map</option>
+              <option>Garbage Bin</option>
+              <option>Train</option>
+              <option>Phone</option>
+              <option>Pet</option>
             </select>
           </div>
         </div>
