@@ -1,18 +1,18 @@
-class SessionsController < ApplicationController
+module Api::V1
 
-  skip_before_action :authenticate
+  class SessionsController < ApplicationController
 
-  def create
-    user = User.find_by(email: auth_params[:email])
-    if user.authenticate(auth_params[:password])
-      jwt = Auth.issue({user: user.id})
-      render json: {jwt: jwt}
-    else
+    skip_before_action :authenticate
+
+    def create
+      user = User.find_by(email: params[:email])
+      if user.authenticate(params[:password])
+        jwt = Auth.issue({user: user.id})
+        render json: {jwt: jwt}
+      else
+      end
     end
+
   end
 
-private
-   def auth_params
-     params.require(:auth).permit(:email, :password)
-   end
 end

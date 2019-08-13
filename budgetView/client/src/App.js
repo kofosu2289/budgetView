@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./App.css";
 import Navbar from './global_components/Navbar';
 import HomePage from './pages/home_page/HomePage';
-import ExpensePage from './pages/expense_page/ExpensePage';
+import SignupPage from './pages/signup_page/SignupPage'
 import axios from 'axios';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHome, faCar, faUtensils, faTruck, faGamepad, faMoon } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div style={{height: "100vh"}}>
         <Navbar />
-        <HomePage />
+        <SignupPage />
       </div>
     );
   }
