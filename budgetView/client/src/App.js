@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from "reactstrap";
+import "./App.css";
 import Navbar from './components/Navbar';
 import ExpenseBoard from './components/ExpenseBoard';
 import Summary from './components/Summary';
 import IncomeBoard from './components/IncomeBoard';
-import "./App.css";
 import axios from 'axios';
 
 class App extends Component {

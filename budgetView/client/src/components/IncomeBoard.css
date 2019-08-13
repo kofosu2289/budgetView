@@ -1,3 +1,12 @@
+.income-board {
+  border-width: 2px !important;
+}
 .card {
-  width: 18rem;
+  width: 12rem;
+}
+.card-body h5 {
+  font-size: 17px;
+}
+.card-body h6 {
+  font-size: 12px;
 }
