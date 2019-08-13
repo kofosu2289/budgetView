@@ -3,7 +3,7 @@ import React from "react";
 class IncomeBoard extends React.Component {
   render() {
     return (
-      <div>
+      <div className="income-board">
         Income board content here.
       </div>
     )
