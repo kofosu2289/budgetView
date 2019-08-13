@@ -15,7 +15,24 @@ class CategoryContainer extends Component {
 	  }
 	}
 
+  //Function to update state for messages
+  updateCategory = (newCategory) => {
 
+    this.setState({ categories: [
+      ...this.state.categories,
+      { 
+        id: newCategory.id,
+        name: newCategory.name,
+        user_id: newCategory.user_id,
+        board_type: newCategory.board_type,
+        goal: newCategory.goal,
+        current_total: newCategory.current_total,
+        updated_at: newCategory.updated_at
+
+
+      } ]
+    })
+  }
 
   
 	componentDidMount() {

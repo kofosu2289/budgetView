@@ -12,21 +12,14 @@ class ExpensePage extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params
-    axios.get(`http://localhost:3001/api/v1/category/${id}.json`)
-         .then(response => {
-           console.log("HERE")
+    axios.get(`/api/v1/category/${id}.json`)
+      .then(response => {
            this.setState({
              category: response.data[0],
              entries: response.data[1]
            });
           })
          .catch(error => console.log(error))
-         .then(() => {
-           console.log('category: ', this.state.category)
-           console.log('entries: ', this.state.entries)
-
-         });
-
 
   }
 

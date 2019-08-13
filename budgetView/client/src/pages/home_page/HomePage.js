@@ -15,7 +15,7 @@ class HomePage extends Component {
         <Row>
           <IncomeBoard />
           <Summary />
-          <ExpenseBoard categories={props.categories} {...props}/>
+          <ExpenseBoard categories={props.categories} update={props.update} {...props}/>
         </Row>
       </Container>
     );
