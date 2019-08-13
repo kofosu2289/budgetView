@@ -2,41 +2,80 @@ import React, { Component } from "react";
 import "./IncomeBoard.css";
 import NewIncomeModal from "./NewIncomeModal";
 import Popup from "reactjs-popup";
+import axios from 'axios';
+
 
 class IncomeBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: []
+ 
+    }
+  }
+
+
+  componentDidMount() {
+  axios
+    .get("http://localhost:3001/api/v1/category.json")
+    .then(response => {
+      
+      this.setState({
+        categories: response.data
+      });
+    })
+    .catch(error => console.log(error));
+
+  }
+
+getIncomeCategory = () => {
+
+  const obtained_categories = this.state.categories;
+  const income_category = [];
+
+  obtained_categories.forEach(function(element){
+    if (element.board_type === 'income'){
+
+      income_category.push(element)
+
+      
+
+
+    }
+  })
+
+  return income_category;
+
+
+}
+
+
+
+
+
   render() {
+
+    const income_categories =this.getIncomeCategory();
+    
+
+    
+
     return (
       <div className="income-board col-md-3 py-4 text-center">
         <h4>Income Boards</h4>
+        {income_categories.map((category)=>{
+          return(
+          <div key={category.id}  className="card my-2 mx-auto">
+            <div className="card-body">
+              <h5 className="card-title">{category.name}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">{category.current_total}</h6>
+            </div>
+          </div>
+          )
+        })}
 
-          <div className="card my-2 mx-auto">
-            <div className="card-body">
-              <h5 className="card-title">Cashier</h5>
-              <h6 className="card-subtitle mb-2 text-muted">Costco - $21/hr</h6>
-            </div>
-          </div>
-          <div className="card my-2 mx-auto">
-            <div className="card-body">
-              <h5 className="card-title">Dog Walker</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Pup Walker Service - $11/hr
-              </h6>
-            </div>
-          </div>
-          <div className="card my-2 mx-auto">
-            <div className="card-body">
-              <h5 className="card-title">Gift</h5>
-              <h6 className="card-subtitle mb-2 text-muted">From Dad - $250</h6>
-            </div>
-          </div>
-          <div className="card my-2 mx-auto">
-            <div className="card-body">
-              <h5 className="card-title">Other</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Random money - $84
-              </h6>
-            </div>
-          </div>
+
+          
           
         <Popup
           trigger={

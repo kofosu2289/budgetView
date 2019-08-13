@@ -7,7 +7,7 @@ class NewIncomeModal extends Component {
       <form>
         <h4 className="py-4">Add new income source:</h4>
         <div className="form-group row px-4">
-          <label for="income-source-title" className="col-sm-3 col-form-label">
+          <label htmlFor="income-source-title" className="col-sm-3 col-form-label">
             Title:
           </label>
           <div className="col-sm-9">
@@ -20,7 +20,7 @@ class NewIncomeModal extends Component {
           </div>
         </div>
         <div className="form-group row px-4">
-          <label for="company-name" className="col-sm-3 col-form-label">
+          <label htmlFor="company-name" className="col-sm-3 col-form-label">
             Company:
           </label>
           <div className="col-sm-9">
@@ -33,7 +33,7 @@ class NewIncomeModal extends Component {
           </div>
         </div>
         <div className="form-group row px-4">
-          <label for="income" className="col-sm-3 col-form-label">
+          <label htmlFor="income" className="col-sm-3 col-form-label">
             Income:
           </label>
           <div className="col-sm-9">

@@ -1,38 +1,64 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./App.css";
-import Navbar from './global_components/Navbar';
-import LandingPage from './pages/landing_page/LandingPage';
-import SignupPage from './pages/signup_page/SignupPage';
-import LoginPage from './pages/login_page/LoginPage';
-import HomePage from './pages/home_page/HomePage';
-import axios from 'axios';
+import Navbar from "./global_components/Navbar";
+import HomePage from "./pages/home_page/HomePage";
+import ExpensePage from "./pages/expense_page/ExpensePage";
+import axios from "axios";
+import {Route, Switch } from 'react-router-dom';
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHome, faCar, faUtensils, faTruck, faGamepad, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { Route, Link } from 'react-router-dom';
+import {
+  faHome,
+  faCar,
+  faUtensils,
+  faTruck,
+  faGamepad,
+  faMoon
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(faHome, faCar, faUtensils, faTruck, faGamepad, faMoon);
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: [],
+    }
+
+  }
+
   componentDidMount() {
-  axios
-    .get("http://localhost:3001/api/v1/category.json")
-    .then(response => {
-      console.log(response);
-      this.setState({
-        categories: response.data
-      });
-    })
-    .catch(error => console.log(error));
+    console.log('componentDidMount <App />');
+    axios.get("http://localhost:3001/api/v1/category.json")
+         .then(response => {
+           this.setState({
+             categories: response.data
+           });
+          })
+         .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div>
-        <Navbar />
-        <Route path="/welcome" component={LandingPage} />
-        <Route path="/home" component={HomePage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/signup" component={SignupPage} />
+        { this.state && this.state.categories &&
+          <div>
+            <Navbar />
+            <Switch>
+              <Route strict path='/home' render={props => (
+                <HomePage categories={this.state.categories} {...props}/>
+                )}
+              />
+            </Switch>
+            <Switch>
+              <Route path='/expense/:id' render={props => (
+                <ExpensePage categories={this.state.categories} {...props}/>
+                )}
+
+              />
+            </Switch>
+          </div>
+        }
       </div>
     );
   }

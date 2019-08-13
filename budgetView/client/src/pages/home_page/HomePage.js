@@ -5,13 +5,17 @@ import Summary from "./components/Summary";
 import IncomeBoard from "./components/IncomeBoard";
 
 class HomePage extends Component {
+
   render() {
+
+  const { component: Component, ...props } = this.props
+
     return (
       <Container>
         <Row>
           <IncomeBoard />
           <Summary />
-          <ExpenseBoard />
+          <ExpenseBoard categories={props.categories} {...props}/>
         </Row>
       </Container>
     );
