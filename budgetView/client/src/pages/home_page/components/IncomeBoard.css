@@ -1,0 +1,21 @@
+.income-board {
+  background-color: #fdb44b;
+}
+.income-board h4 {
+  font-weight: 600;
+  font-size: 22px;
+}
+.income-board .card {
+  width: 11rem;
+}
+.income-board .card-body h5 {
+  font-size: 15px;
+}
+.income-board .card-body h6 {
+  font-size: 13px;
+}
+.income-btn {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}

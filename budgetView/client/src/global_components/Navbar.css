@@ -1,0 +1,12 @@
+nav {
+  background-color: #fdb44b;
+  color: #2d4059;
+}
+nav .navbar-brand {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+nav .btn {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}

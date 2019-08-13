@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from "reactstrap";
 import "./App.css";
-import Navbar from './components/Navbar';
-import ExpenseBoard from './components/ExpenseBoard';
-import Summary from './components/Summary';
-import IncomeBoard from './components/IncomeBoard';
+import Navbar from './global_components/Navbar';
+import HomePage from './pages/home_page/HomePage';
 import axios from 'axios';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHome, faCar, faUtensils, faTruck, faGamepad, faMoon } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faHome, faCar, faUtensils, faTruck, faGamepad, faMoon);
 
 class App extends Component {
   componentDidMount() {
   axios
-    .get("http://localhost:3001/api/v1/resources.json")
+    .get("http://localhost:3001/api/v1/category")
     .then(response => {
       console.log(response);
       this.setState({
@@ -22,21 +23,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{height: "100vh"}}>
         <Navbar />
-        <Container>
-          <Row>
-            <Col md="3">
-              <IncomeBoard />
-            </Col>
-            <Col md="6">
-              <Summary />
-            </Col>
-            <Col md="3">
-              <ExpenseBoard />
-            </Col>
-          </Row>
-        </Container>
+        <HomePage />
       </div>
     );
   }

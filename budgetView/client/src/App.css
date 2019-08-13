@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,500|Open+Sans:300,400,600');
+
+.container {
+  max-width: 88em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
