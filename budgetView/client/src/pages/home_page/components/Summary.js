@@ -4,10 +4,10 @@ import "./Summary.css";
 class Summary extends Component {
   render() {
     return (
-      <div className="summary-board row justify-content-center text-center border border-dark col-md-12 py-4">
+      <div className="summary-board col-md-6 py-4 text-center">
         Summary content here.
       </div>
-    )
+    );
   }
 }
 
