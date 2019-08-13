@@ -67,8 +67,8 @@ getIncomeCategory = () => {
           return(
           <div key={category.id}  className="card my-2 mx-auto">
             <div className="card-body">
-              <h5 className="card-title">{category.name}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">{category.current_total}</h6>
+            <h6 className="card-subtitle mb-2 text-muted">Current Total: {category.current_total}$</h6>
+              <h6 className="card-subtitle mb-2 text-muted">Goal Total: {category.goal}$</h6>
             </div>
           </div>
           )

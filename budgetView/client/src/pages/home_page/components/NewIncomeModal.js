@@ -1,59 +1,48 @@
 import React, { Component } from "react";
 import "./NewIncomeModal.css";
+import axios from 'axios';
+
 
 class NewIncomeModal extends Component {
+
+handleClick(){
+  const name = this.refs.name.value;
+  const current_total = this.refs.current_total.value;
+  const goal_total = this.refs.goal_total.value;
+
+  axios.post(
+      'http://localhost:3001/api/v1/category',
+      { category:
+        {
+          name: name,
+          user_id: 1,
+          board_type: 'income',
+          goal: goal_total,
+          current_total: current_total
+        }
+      }
+    )
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => console.log(error))
+  
+
+}
+
   render() {
     return (
-      <form>
-        <h4 className="py-4">Add new income source:</h4>
-        <div className="form-group row px-4">
-          <label htmlFor="income-source-title" className="col-sm-3 col-form-label">
-            Title:
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="text"
-              className="form-control"
-              id="income-source-title"
-              placeholder="i.e. Part-time Job"
-            />
-          </div>
-        </div>
-        <div className="form-group row px-4">
-          <label htmlFor="company-name" className="col-sm-3 col-form-label">
-            Company:
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="text"
-              className="form-control"
-              id="company-name"
-              placeholder="i.e. Costco"
-            />
-          </div>
-        </div>
-        <div className="form-group row px-4">
-          <label htmlFor="income" className="col-sm-3 col-form-label">
-            Income:
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="text"
-              className="form-control"
-              id="income"
-              placeholder="i.e. $14.50/hr"
-            />
-          </div>
-        </div>
-        <div className="form-group row px-4">
-          <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary px-4">
-              Add
-            </button>
-          </div>
-        </div>
-      </form>
-    )
+      <div>
+
+       <input ref='name' placeholder='Title' />
+       <input ref='current_total' placeholder='Current Total' />
+       <input ref='goal_total' placeholder='Goal Total' />
+
+
+        <button onClick={this.handleClick.bind(this)}>Submit</button>
+
+     </div>
+)
   }
 }
 
