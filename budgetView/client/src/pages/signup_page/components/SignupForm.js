@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import './SignupForm.css'
 
 class SignupForm extends Component {
@@ -25,7 +26,18 @@ class SignupForm extends Component {
 
   onSave = (event) => {
     event.preventDefault();
-    this.props.onLogIn(this.state.credentials);
+
+    const user = {
+      user: this.state.credentials
+    }
+
+    axios.post(`/api/v1/users`, user)
+      .then(res => {
+          console.log(res);
+          console.log(res.data);
+          this.props.history.push('/login');
+        })
+
   }
 
   render () {
