@@ -3,8 +3,10 @@ import React from "react";
 class IncomeBoard extends React.Component {
   render() {
     return (
-      <div></div>
-    );
+      <div>
+        Income board content here.
+      </div>
+    )
   }
 }
 

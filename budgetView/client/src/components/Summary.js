@@ -1,11 +1,13 @@
 import React from "react";
 
-class Summary extends React.Component {
+class IncomeBoard extends React.Component {
   render() {
     return (
-      <div></div>
-    );
+      <div>
+        Income board content here.
+      </div>
+    )
   }
 }
 
-export default Summary;
+export default IncomeBoard;
