@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "./ExpenseBoard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NewExpenseModal from "./NewExpenseModal";
+import Popup from "reactjs-popup";
 
 class ExpenseBoard extends Component {
   render() {
-    return <div className="expense-board row justify-content-center text-center col-md-12 py-4">
+    return (
+      <div className="expense-board row justify-content-center text-center col-md-12 py-4">
         <h4>Expense Boards</h4>
         <div className="row">
           <div className="col-md-6">
@@ -56,8 +59,19 @@ class ExpenseBoard extends Component {
             </div>
           </div>
         </div>
-        <button type="button" className="btn btn-lg category-btn">Add Category</button>
-      </div>;
+        <Popup
+          trigger={
+            <button type="button" className="btn btn-lg category-btn">
+              Add Category
+            </button>
+          }
+          modal
+          closeOnDocumentClick
+        >
+          <NewExpenseModal />
+        </Popup>
+      </div>
+    );
   }
 }
 

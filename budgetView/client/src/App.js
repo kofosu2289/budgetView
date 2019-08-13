@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div style={{height: "100vh"}}>
         <Navbar />
-        <ExpensePage />
+        <HomePage />
       </div>
     );
   }
