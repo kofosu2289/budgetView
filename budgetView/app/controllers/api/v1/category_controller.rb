@@ -2,6 +2,11 @@ module Api::V1
 
   class CategoryController < ApplicationController
 
+    def index
+      @category = Category.all
+      render json: @category 
+    end
+
     def show
     end
 
