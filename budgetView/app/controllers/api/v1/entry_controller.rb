@@ -2,17 +2,15 @@ module Api::V1
 
   class EntryController < ApplicationController
 
+    skip_before_action :authenticate
+
     def create
-      @entry = Entry.create(entry_params)
-      @category = Category.find(@entry.category_id)
-      @entries = Entry.where(category_id: @category.id)
-      newTotal = @entry.amount + @category.current_total;
-      @category.update(current_total: newTotal)
+      @entry = Entry.new(entry_params)
     end
 
     def destroy
       @entry = Entry.find(params[:id])
-      @entry.destroy
+      @entry.destory
     end
 
     def new
@@ -25,7 +23,7 @@ module Api::V1
 
       params.require(:entry).permit(
         :category_id,
-        :amount,
+        :amout,
         :name,
         :description,
         :date,

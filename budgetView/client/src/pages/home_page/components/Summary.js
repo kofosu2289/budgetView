@@ -34,6 +34,8 @@ class CategoryContainer extends Component {
     })
   }
 
+
+
   
 	componentDidMount() {
 	axios
@@ -41,7 +43,7 @@ class CategoryContainer extends Component {
 	  .then(response => {
 	    this.setState({
 	      categories: response.data
-      });
+	    });
       console.log(this.state)
 	  })
 	  .catch(error => console.log(error));

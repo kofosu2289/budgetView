@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./global_components/Navbar";
+import LandingPage from './pages/landing_page/LandingPage';
+import SignupPage from './pages/signup_page/SignupPage';
+import LoginPage from './pages/login_page/LoginPage';
 import HomePage from "./pages/home_page/HomePage";
 import ExpensePage from "./pages/expense_page/ExpensePage";
-import IncomePage from "./pages/income_page/IncomePage";
 import axios from "axios";
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHome,
@@ -17,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faHome, faCar, faUtensils, faTruck, faGamepad, faMoon);
+
 
 class App extends Component {
 
@@ -32,6 +35,7 @@ class App extends Component {
            this.setState({
              categories: response.data
            });
+           console.log(response.data)
           })
          .catch(error => console.log(error));
   }
@@ -42,38 +46,32 @@ class App extends Component {
   }
 
 
+
   render() {
     return (
-      <div>
-        { this.state && this.state.categories &&
-          <div>
-            <Navbar />
-            <Switch>
-              <Route strict path='/home' render={props => (
-                <HomePage categories={this.state.categories} update={this.update.bind(this)} {...props}/>
-                )}
-              />
-            </Switch>
-            <Switch>
-              <Route path='/expense/:id' render={props => (
-                <ExpensePage categories={this.state.categories} update={this.update.bind(this)} {...props}/>
-                )}
+      <BrowserRouter>
+        <div>
+          { this.state && this.state.categories &&
+            <div>
+              <Navbar />
+              <Switch>
+                <Route exact path='/' component={LandingPage} />
+                <Route path='/signup' component={SignupPage} />
+                <Route path='/login' component={LoginPage} />
+                <Route path='/home' render={props => (
+                  <HomePage categories={this.state.categories} update={this.update.bind(this)} {...props}/>
+                  )}
+                />
+                <Route path='/expense/:id' render={props => (
+                  <ExpensePage categories={this.state.categories} update={this.update.bind(this)} {...props}/>
+                  )}
 
-              />
-            </Switch>
-
-            <Switch>
-              <Route path='/income/:id' render={props => (
-                <IncomePage categories={this.state.categories} update={this.update.bind(this)} {...props}/>
-                )}
-
-              />
-            </Switch>
-
-
-          </div>
-        }
-      </div>
+                />
+              </Switch>
+            </div>
+          }
+        </div>
+      </BrowserRouter>
     );
   }
 }

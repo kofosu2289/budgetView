@@ -29,10 +29,10 @@ const makeCardStack = (cards) => {
   })
   return allCards
 }
+
 class ExpenseBoard extends Component {
   render() {
     const { component: Component, ...props } = this.props
-    console.log("PROPS: ", props)
     return (<div className="expense-board col-md-3 py-4 text-center">
               <h4 className="py-3">Expense Boards</h4>
               <div className="card-deck">
