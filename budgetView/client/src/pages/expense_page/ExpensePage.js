@@ -12,7 +12,7 @@ class ExpensePage extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params
-    axios.get(`/api/v1/category/${id}.json`)
+    axios.get(`http://localhost:3001/api/v1/category/${id}.json`)
       .then(response => {
            this.setState({
              category: response.data[0],
@@ -30,8 +30,7 @@ class ExpensePage extends Component {
         { this.state && this.state.entries &&
           <div>
             <SpendingSummary entries={this.state.entries}/>
-            <ExpenseTable entries={this.state.entries} />
-          </div>
+            <ExpenseTable entries={this.state.entries} id={this.props.match.params} />          </div>
         }
       </Container>
     );

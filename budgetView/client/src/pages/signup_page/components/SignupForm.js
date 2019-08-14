@@ -31,7 +31,7 @@ class SignupForm extends Component {
       user: this.state.credentials
     }
 
-    axios.post(`/api/v1/users`, user)
+    axios.post(`http://localhost:3001/api/v1/users`, user)
       .then(res => {
           console.log(res);
           console.log(res.data);

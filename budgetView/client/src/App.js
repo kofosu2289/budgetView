@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   update() {
-    axios.get("api/v1/category.json")
+    axios.get("http://localhost:3001/api/v1/category.json")
          .then(response => {
            this.setState({
              categories: response.data
