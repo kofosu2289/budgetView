@@ -4,11 +4,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
-import { BrowserRouter as Router } from 'react-router-dom';
+import Guard from "./global_components/Guard"
 
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById("react-root")
-);
+ReactDOM.render(<App />, document.getElementById("react-root"));

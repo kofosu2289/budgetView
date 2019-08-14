@@ -4,13 +4,25 @@ module Api::V1
 
     skip_before_action :authenticate
 
+    def new
+    end
+
     def create
       user = User.find_by(email: params[:email])
-      if user.authenticate(params[:password])
-        jwt = Auth.issue({user: user.id})
-        render json: {jwt: jwt}
+      if user
+        if user.authenticate(params[:password])
+          jwt = Auth.issue({user: user.id})
+          render json: {jwt: jwt}
+        else
+          render json: {error: "unauthorized"}, status: 401
+        end
       else
+        render json: {error: "user not found"}, status: 404
       end
+      # render json: {hello: 'world'}
+    end
+
+    def destroy
     end
 
   end

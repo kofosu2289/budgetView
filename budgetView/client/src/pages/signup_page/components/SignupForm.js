@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './SignupForm.css'
 
@@ -13,7 +14,8 @@ class SignupForm extends Component {
         email: '',
         password: '',
         password_confirmation: ''
-      }
+      },
+      redirect: false
     }
   }
 
@@ -35,12 +37,15 @@ class SignupForm extends Component {
       .then(res => {
           console.log(res);
           console.log(res.data);
-          this.props.history.push('/login');
+          return this.setState({ redirect: true })
         })
 
   }
 
   render () {
+    if (this.state.redirect) {
+      return <Redirect to='/login'/>
+    }
     return (
       <section className="signup-new-user">
         <header className="signup-page-header">
@@ -48,7 +53,7 @@ class SignupForm extends Component {
         </header>
         <div className="row">
           <div className="col-sm-6 col-sm-offset-1">
-            <form>
+            <form onSubmit={this.onSave} >
               <div className="form-group input">
                 First Name <input type="text" className="form-control" id="inputFirstName3" name="first_name" label="first_name" value={this.state.credentials.first_name} onChange={this.onChange} />
               </div>
@@ -65,7 +70,7 @@ class SignupForm extends Component {
                 Password Confirmation <input type="password" className="form-control" id="inputPasswordConfirmation3" name="password_confirmation" label="password_confirmation" value={this.state.credentials.password_confirmation} onChange={this.onChange} />
               </div>
               <div className="form-group submit">
-                <input type="submit" className="btn btn-primary" onClick={this.onSave} />
+                <input type="submit" className="btn btn-primary" />
               </div>
             </form>
           </div>
