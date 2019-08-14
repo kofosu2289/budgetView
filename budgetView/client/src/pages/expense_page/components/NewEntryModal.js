@@ -4,71 +4,84 @@ import axios from "axios";
 import { Redirect } from 'react-router-dom';
 
 
-class NewExpenseModal extends Component {
+class NewEntryModal extends Component {
 
 
   submitNewCategory = event => {
-    event.preventDefault();
+      event.preventDefault();
 
-    const category = {
-      name: event.target.categoryName.value,
-      board_type: 'expense',
-      goal: event.target.maxGoal.value,
-      current_total: 0,
-      user_id: 1,
-    };
+      const entry = {
+        name: event.target.entryName.value,
+        category_id: this.props.id,
+        amount: event.target.amount.value,
+        description: event.target.description.value,
+        date: event.target.date.value,
+      };
 
-    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
-      .then(res => {
-        this.props.update()
-      })
+      axios.post(`http://localhost:3001/api/v1/entry.json`, { entry })
+        .then(res => {
+          this.props.update()
+        })
 
+      console.log("HIHI")
 
-  }
+    }
 
 
   render() {
     const { component: Component, ...props } = this.props
     console.log('PROPS: ', this.props)
     return (
-      <form onSubmit={this.submitNewCategory}>
-        <h4 className="py-4">Add new expense category:</h4>
+      <form onSubmit={ this.submitNewCategory }>
+        <h4 className="py-4">Add New Entry:</h4>
         <div className="form-group row px-4">
-          <label htmlFor="categoryName" className="col-sm-3 col-form-label">
-            Title:
+          <label htmlFor="entryName" className="col-sm-3 col-form-label">
+            Name:
           </label>
           <div className="col-sm-9">
             <input
               type="text"
               className="form-control"
-              id="categoryName"
-              placeholder="i.e. Vacation"
+              id="entryName"
+              placeholder="i.e. item X"
             />
           </div>
         </div>
         <div className="form-group row px-4">
-          <label htmlFor="category-icon" className="col-sm-3 col-form-label">
-            Select icon:
-          </label>
-          <div className="col-sm-9">
-            <select className="form-control" id="category-icon">
-              <option>Map</option>
-              <option>Garbage Bin</option>
-              <option>Train</option>
-              <option>Phone</option>
-              <option>Pet</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-group row px-4">
-          <label htmlFor="maxGoal" className="col-sm-3 col-form-label">
-            Maximum Goal Spending Amount:
+          <label htmlFor="amount" className="col-sm-3 col-form-label">
+            Amount Spent:
           </label>
           <div className="col-sm-9">
             <input
               type="text"
               className="form-control"
-              id="maxGoal"
+              id="amount"
+              placeholder="i.e. $75.00"
+            />
+          </div>
+        </div>
+        <div className="form-group row px-4">
+          <label htmlFor="description" className="col-sm-3 col-form-label">
+            Notes:
+          </label>
+          <div className="col-sm-9">
+            <input
+              type="text"
+              className="form-control"
+              id="description"
+              placeholder="i.e. bought for reason Y"
+            />
+          </div>
+        </div>
+        <div className="form-group row px-4">
+          <label htmlFor="date" className="col-sm-3 col-form-label">
+            Date:
+          </label>
+          <div className="col-sm-9">
+            <input
+              type="date"
+              className="form-control"
+              id="date"
               placeholder="i.e. $75.00"
             />
           </div>
@@ -85,4 +98,4 @@ class NewExpenseModal extends Component {
   }
 }
 
-export default NewExpenseModal;
+export default NewEntryModal;

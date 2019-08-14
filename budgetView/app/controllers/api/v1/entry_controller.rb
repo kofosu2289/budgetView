@@ -2,20 +2,13 @@ module Api::V1
 
   class EntryController < ApplicationController
 
-
-    def index
-      @entry = Category.all
-      render json: @entry
-    end
-
     def create
-      @entry = Entry.new(entry_params)
-      @entry.save
+      @entry = Entry.create(entry_params)
     end
 
     def destroy
       @entry = Entry.find(params[:id])
-      @entry.destroy
+      @entry.destory
     end
 
     def new

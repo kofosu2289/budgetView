@@ -25,9 +25,9 @@ class ExpenseTable extends Component {
   handleClick = event => {
     event.preventDefault();
 
-    const category = this.props.id;
+    const category_id = this.props.id;
     
-    axios.delete(`http://localhost:3001/api/v1/category/${category.id}`)
+    axios.delete(`http://localhost:3001/api/v1/category/${category_id}`)
       .then(res => {
         this.props.update()
       })
@@ -39,7 +39,6 @@ class ExpenseTable extends Component {
     const { component: Component, ...props } = this.props
     return (
       <div>
-        <button type="button" className="btn btn-primary delete-btn" onClick={this.handleClick.bind(this)}>Delete Category</button>
 
         <div className="expense-table mx-auto py-4 col-md-12">
           <table className="table table-hover">
@@ -56,6 +55,9 @@ class ExpenseTable extends Component {
             {makeEntryRow(props.entries)}
             </tbody>
           </table>
+          <br />
+          <button type="button" className="btn btn-primary delete-btn" onClick={this.handleClick.bind(this)}>Delete Category</button>
+
         </div>
       </div>
     );

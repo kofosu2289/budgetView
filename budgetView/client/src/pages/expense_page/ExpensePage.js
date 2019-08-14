@@ -9,23 +9,22 @@ import Popup from "reactjs-popup";
 
 class ExpensePage extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  componentDidMount() {
-    const { id } = this.props.match.params
-    axios.get(`http://localhost:3001/api/v1/category/${id}.json`)
-      .then(response => {
-        this.setState({
-          category: response.data[0],
-          entries: response.data[1]
-        });
-      })
-      .catch(error => console.log(error))
+  update() {
+    axios.get(`http://localhost:3001/api/v1/category/${this.props.match.params['id']}.json`)
+         .then(response => {
+           this.setState({
+             category: response.data[0],
+             entries: response.data[1]
+           });
+          })
+         .catch(error => console.log(error));
 
   }
 
+  componentDidMount() {
+    this.update()
+
+  }
 
   render() {
     return (
