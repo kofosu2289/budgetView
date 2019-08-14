@@ -29,15 +29,14 @@ class LoginForm extends Component {
     axios.post(`http://localhost:3001/api/v1/sessions`, { ...this.state.credentials })
       .then(res => {
         console.log(res)
-        })
-
-    // fetch(`/api/v1/sessions?`, { method: 'POST' })
-
+        console.log(res.data)
+        this.setState({ redirect: true })
+      })
   }
 
   render () {
     if (this.state.redirect) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/home'/>
     }
     return (
       <section className="login-existing-user">

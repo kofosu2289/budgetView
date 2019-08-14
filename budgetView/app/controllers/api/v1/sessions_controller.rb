@@ -19,7 +19,6 @@ module Api::V1
       else
         render json: {error: "user not found"}, status: 404
       end
-      # render json: {hello: 'world'}
     end
 
     def destroy
