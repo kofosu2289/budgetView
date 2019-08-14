@@ -23,7 +23,7 @@ handleClick(){
       }
     )
     .then(response => {
-
+      this.props.update()
     })
     .catch(error => console.log(error))
   

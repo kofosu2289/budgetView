@@ -3,6 +3,8 @@ import "./IncomeBoard.css";
 import NewIncomeModal from "./NewIncomeModal";
 import Popup from "reactjs-popup";
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'
+
 
 
 class IncomeBoard extends Component {
@@ -15,18 +17,25 @@ class IncomeBoard extends Component {
   }
 
 
-  componentDidMount() {
-  axios
-    .get("http://localhost:3001/api/v1/category.json")
-    .then(response => {
-      
-      this.setState({
-        categories: response.data
-      });
-    })
-    .catch(error => console.log(error));
+  update (){
+    axios
+      .get("http://localhost:3001/api/v1/category.json")
+      .then(response => {
+        
+        this.setState({
+          categories: response.data
+        });
+      })
+      .catch(error => console.log(error));
 
   }
+
+
+  componentDidMount() {
+    this.update()
+
+  }
+
 
 getIncomeCategory = () => {
 
@@ -64,13 +73,16 @@ getIncomeCategory = () => {
       <div className="income-board col-md-3 py-4 text-center">
         <h4>Income Boards</h4>
         {income_categories.map((category)=>{
-          return(
+          return (
+            <NavLink to={`/income/${category['id']}`}>
+
           <div key={category.id}  className="card my-2 mx-auto">
             <div className="card-body">
             <h6 className="card-subtitle mb-2 text-muted">Current Total: {category.current_total}$</h6>
               <h6 className="card-subtitle mb-2 text-muted">Goal Total: {category.goal}$</h6>
             </div>
-          </div>
+              </div>
+              </NavLink>
           )
         })}
 
