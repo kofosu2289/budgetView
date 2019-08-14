@@ -4,11 +4,15 @@ module Api::V1
 
     def create
       @entry = Entry.create(entry_params)
+      @category = Category.find(@entry.category_id)
+      @entries = Entry.where(category_id: @category.id)
+      newTotal = @entry.amount + @category.current_total;
+      @category.update(current_total: newTotal)
     end
 
     def destroy
       @entry = Entry.find(params[:id])
-      @entry.destory
+      @entry.destroy
     end
 
     def new
