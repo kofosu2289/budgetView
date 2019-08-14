@@ -8,30 +8,30 @@ class NewExpenseModal extends Component {
 
 
   submitNewCategory = event => {
-      event.preventDefault();
+    event.preventDefault();
 
-      const category = {
-        name: event.target.categoryName.value,
-        board_type: 'expense',
-        goal: event.target.maxGoal.value,
-        current_total: 0,
-        user_id: 1,
-      };
+    const category = {
+      name: event.target.categoryName.value,
+      board_type: 'expense',
+      goal: event.target.maxGoal.value,
+      current_total: 0,
+      user_id: 1,
+    };
 
-      axios.post(`/api/v1/category.json`, { category })
-        .then(res => {
-          this.props.update()
-        })
+    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+      .then(res => {
+        this.props.update()
+      })
 
 
-    }
+  }
 
 
   render() {
     const { component: Component, ...props } = this.props
     console.log('PROPS: ', this.props)
     return (
-      <form onSubmit={ this.submitNewCategory }>
+      <form onSubmit={this.submitNewCategory}>
         <h4 className="py-4">Add new expense category:</h4>
         <div className="form-group row px-4">
           <label htmlFor="categoryName" className="col-sm-3 col-form-label">
@@ -46,12 +46,12 @@ class NewExpenseModal extends Component {
             />
           </div>
         </div>
-        <div class="form-group row px-4">
-          <label for="category-icon" className="col-sm-3 col-form-label">
+        <div className="form-group row px-4">
+          <label htmlFor="category-icon" className="col-sm-3 col-form-label">
             Select icon:
           </label>
           <div className="col-sm-9">
-            <select class="form-control" id="category-icon">
+            <select className="form-control" id="category-icon">
               <option>Map</option>
               <option>Garbage Bin</option>
               <option>Train</option>

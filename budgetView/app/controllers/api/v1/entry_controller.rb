@@ -2,13 +2,20 @@ module Api::V1
 
   class EntryController < ApplicationController
 
+
+    def index
+      @entry = Category.all
+      render json: @entry
+    end
+
     def create
       @entry = Entry.new(entry_params)
+      @entry.save
     end
 
     def destroy
       @entry = Entry.find(params[:id])
-      @entry.destory
+      @entry.destroy
     end
 
     def new
@@ -21,7 +28,7 @@ module Api::V1
 
       params.require(:entry).permit(
         :category_id,
-        :amout,
+        :amount,
         :name,
         :description,
         :date,
