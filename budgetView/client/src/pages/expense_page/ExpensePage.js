@@ -29,16 +29,19 @@ class ExpensePage extends Component {
   render() {
     return (
       <Container>
-        <Popup trigger={
-          <button type="button" className="btn btn-lg category-btn">
-            Add Category
-          </button>} modal closeOnDocumentClick>
-          <NewEntryModal update={this.props.update} />
-        </Popup>
-        {this.state && this.state.entries &&
+        { this.state && this.state.entries &&
           <div>
-            <SpendingSummary entries={this.state.entries} />
-            <ExpenseTable entries={this.state.entries} id={this.props.match.params} />          </div>
+            <h1>Expenses - {this.state.category.name}</h1>
+            <SpendingSummary entries={this.state.entries}/>
+            <br/>
+            <Popup trigger={
+              <button type="button" className="btn btn-primary px-4">
+              Add Entry
+              </button>} modal closeOnDocumentClick>
+              <NewEntryModal update={this.update.bind(this)} id={this.state.category.id} updateHome={this.props.update}/>
+            </Popup>
+            <ExpenseTable entries={this.state.entries} id={this.state.category.id} update={this.update.bind(this)} updateHome={this.props.update}/>
+          </div>
         }
       </Container>
     );

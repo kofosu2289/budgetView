@@ -4,7 +4,7 @@ module Api::V1
 
     def index
       @categories = Category.all
-      @categories = @categories.order(:id, :desc).all
+      @categories = @categories.order(id: :desc).all
       render json: @categories
     end
 
