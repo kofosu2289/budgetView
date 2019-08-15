@@ -5,7 +5,7 @@ import ExpenseTable from "./components/ExpenseTable";
 import axios from "axios";
 import NewEntryModal from "./components/NewEntryModal";
 import Popup from "reactjs-popup";
-
+import { Redirect } from 'react-router-dom';
 
 class ExpensePage extends Component {
 
@@ -27,6 +27,10 @@ class ExpensePage extends Component {
   }
 
   render() {
+
+    if (!localStorage.getItem('jwtToken')) {
+      return <Redirect to='/login' />
+    }
     return (
       <Container>
         { this.state && this.state.entries &&

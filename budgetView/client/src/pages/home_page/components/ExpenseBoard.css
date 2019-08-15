@@ -5,9 +5,7 @@
   font-weight: 600;
   font-size: 22px;
 }
-.expense-board .card {
-  width: 7.6rem;
-}
+
 .expense-board .card-body h5 {
   font-size: 15px;
 }

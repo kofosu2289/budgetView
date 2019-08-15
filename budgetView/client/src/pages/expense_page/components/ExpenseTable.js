@@ -2,9 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./ExpenseTable.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Redirect } from 'react-router-dom';
+
 
 class ExpenseTable extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state ={
+      deleted: false,
+    }
+  }
 
     makeEntryRow = (entries) => {
     let count = 0;
@@ -36,6 +43,9 @@ class ExpenseTable extends Component {
     axios.delete(`http://localhost:3001/api/v1/category/${category_id}`)
       .then(res => {
         this.props.updateHome()
+        this.setState ({
+          deleted: true,
+        })
       })
 
   }
@@ -53,6 +63,9 @@ class ExpenseTable extends Component {
 
   render() {
     const { component: Component, ...props } = this.props
+    if (this.state.deleted){
+      return <Redirect to="/home" />
+    }
     return (
       <div>
         <div className="expense-table mx-auto py-4 col-md-12">
