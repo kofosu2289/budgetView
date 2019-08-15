@@ -90,7 +90,7 @@ class CategoryContainer extends Component {
 	  return(
 	  	<div style={{'padding-right':200}}>
 		    <h4 align='left'>Spending Summary</h4>
-		  	<Doughnut data={data} options={options} height={100}/>
+		  	<Doughnut data={data} options={options} height={70}/>
 				<br/>
 	  	</div>
 	  	)

@@ -1,9 +1,6 @@
-.income-board {
-  background-color: #fdb44b;
-}
 #income-card-container {
   height: 100%;
-  max-height: 500px;
+  max-height: 410px;
   overflow-y: scroll;
 }
 .income-board h4 {
