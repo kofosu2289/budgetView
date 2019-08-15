@@ -1,3 +1,7 @@
 .summary-board {
   border-width: 2px !important;
 }
+
+#summaryDiv {
+  padding-right: 200;
+}
