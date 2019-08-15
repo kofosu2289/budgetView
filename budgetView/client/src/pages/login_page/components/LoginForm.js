@@ -12,7 +12,8 @@ class LoginForm extends Component {
         email: '',
         password: ''
       },
-      redirect: false
+      redirect: false,
+      error: false
     }
   }
 
@@ -26,19 +27,28 @@ class LoginForm extends Component {
   onSave = (event) => {
     event.preventDefault();
 
-    axios.post(`http://localhost:3001/api/v1/sessions`, { ...this.state.credentials })
+    axios.post(`/api/v1/sessions`, { ...this.state.credentials })
       .then(res => {
         const token = res.data.jwt;
         localStorage.setItem('jwtToken', token);
-        this.setState({ redirect: true })
+        this.setState({ redirect: true, error: false })
         console.log(res)
+      })
+      .catch((error) => {
+        this.setState({ error: true })
       })
   }
 
-  render () {
+  render() {
+    let error
     if (this.state.redirect) {
       return <Redirect to='/home'/>
-    }
+    } else if (this.state.error) {
+       error =
+        <div className='error-message'>
+          Incorrect Credentials. Please try again.
+        </div>
+    } 
     return (
       <section className="login-existing-user">
         <header className="login-page-header">
@@ -59,6 +69,7 @@ class LoginForm extends Component {
             </form>
           </div>
         </div>
+        {error}
         <div className="login-message">
           <p>Dont have an account? Click <a href="/signup">here</a> to sign up.</p>
         </div>

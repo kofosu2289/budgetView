@@ -17,6 +17,7 @@ class Navbar extends Component {
     let loginLogout
     let messageCenter
     let navbarBrand
+    let signup
     if (user ) {
       loginLogout =
       <NavLink to='/'>
@@ -33,7 +34,11 @@ class Navbar extends Component {
     } else {
       loginLogout =
       <NavLink to='/login'>
-        <div className="navbar-right-div login" onClick={this.login}>Login</div>
+        <div className="navbar-right-div login">Login</div>
+      </NavLink>
+      signup =
+      <NavLink to='/signup'>
+        <div className="navbar-right-div login">Signup</div>
       </NavLink>
       navbarBrand =
       <NavLink to='/'>
@@ -45,6 +50,7 @@ class Navbar extends Component {
           {navbarBrand}
         <div className="navbar justify-content-between">
           {messageCenter}
+          {signup}
           {loginLogout}
         </div>
       </nav>

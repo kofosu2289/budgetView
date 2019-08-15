@@ -15,7 +15,8 @@ class SignupForm extends Component {
         password: '',
         password_confirmation: ''
       },
-      redirect: false
+      redirect: false,
+      error:false
     }
   }
 
@@ -35,16 +36,24 @@ class SignupForm extends Component {
 
     axios.post(`http://localhost:3001/api/v1/users`, user)
       .then(res => {
-          console.log(res);
-          console.log(res.data);
-          return this.setState({ redirect: true })
+        if (res.status === 204) {
+          this.setState({ error: true })
+        } else {
+          this.setState({ redirect: true, error: false })
+        }
         })
 
   }
 
-  render () {
-    if (this.state.redirect) {
+  render() {
+    let error
+    if (this.state.redirect && !this.state.error) {
       return <Redirect to='/login'/>
+    } else if (this.state.error) {
+      error =
+        <div className='error-message'>
+          Missing credentials. Please fill out all fields before submitting.
+        </div>
     }
     return (
       <section className="signup-new-user">
@@ -75,6 +84,7 @@ class SignupForm extends Component {
             </form>
           </div>
         </div>
+        {error}
         <div className="signup-message">
           <p>Already have an account? Click <a href="/login">here</a> to sign in.</p>
         </div>
@@ -84,3 +94,4 @@ class SignupForm extends Component {
 }
 
 export default SignupForm;
+
