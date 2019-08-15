@@ -17,7 +17,7 @@ const makeCardStack = cards => {
                 <FontAwesomeIcon icon="home" className="icons pb-2" />
                 <h5 className="card-title">{card["name"]}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">
-                  ${card["current_total"]}
+                  ${card["goal"]}
                 </h6>
                 <BarGraphs data_needed={card} />
               </div>
