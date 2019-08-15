@@ -51,7 +51,7 @@ class NewExpenseModal extends Component {
             Select icon:
           </label>
           <div className="col-sm-9">
-            <select className="form-control" id="category-icon">
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Map</option>
               <option>Garbage Bin</option>
               <option>Train</option>
