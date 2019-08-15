@@ -4,18 +4,18 @@ import NumberFormat from "react-number-format";
 
 class Rundown extends Component {
   render() {
-    let total_income = 0;
-    let total_expenses = 0;
+    let total_income = 0.0;
+    let total_expenses = 0.0;
 
     this.props.categories.forEach(function(category) {
       if (category.board_type === "income") {
-        total_income += category.current_total;
+        total_income += parseFloat(category.current_total);
       } else {
-        total_expenses += category.current_total;
+        total_expenses += parseFloat(category.current_total);
       }
     });
-
-    const amount_left = total_income - total_expenses;
+    
+    const amount_left = (total_income - total_expenses).toFixed(2);
     let color = "rgb(139, 179, 88)";
     if (amount_left < 0) {
       color = "rgb(250, 77, 65)";

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./IncomeBoard.css";
 import NewIncomeModal from "./NewIncomeModal";
 import Popup from "reactjs-popup";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 class IncomeBoard extends Component {
@@ -25,15 +24,15 @@ class IncomeBoard extends Component {
     return (
       <div className="income-board py-4 text-center">
         <h4>Income</h4>
-        <div id="income-card-container">
+        <div className="pt-2" id="income-card-container">
           {income_categories.map(category => {
             return (
               <NavLink to={`/income/${category["id"]}`}>
                 <div key={category.id} className="card my-2 mx-auto">
                   <div className="card-body">
                     <h5 className="card-title">{category.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">
-                      Current Total: {category.current_total}$
+                    <h6 className="card-subtitle my-2 text-muted">
+                      Current Total - {category.current_total}$
                     </h6>
                   </div>
                 </div>

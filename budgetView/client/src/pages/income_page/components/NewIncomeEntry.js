@@ -62,7 +62,7 @@ class NewIncomeEntry extends Component {
               type="text"
               className="form-control"
               id="description"
-              placeholder="i.e. bought for reason Y"
+              placeholder="i.e. from sources Y"
             />
           </div>
         </div>

@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import { Redirect, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   logout = event => {
     localStorage.removeItem("jwtToken");
   };
 
   render() {
-    const user = localStorage.getItem("jwtToken");
+    var user = localStorage.getItem("jwtToken");
     let loginLogout;
-    let messageCenter;
+    
     let navbarBrand;
     let signup;
     if (user) {
@@ -23,11 +20,6 @@ class Navbar extends Component {
           <div className="navbar-right-div logout" onClick={this.logout}>
             Logout
           </div>
-        </NavLink>
-      );
-      messageCenter = (
-        <NavLink to="/home">
-          <div className="navbar-right-div">Message Center</div>
         </NavLink>
       );
       navbarBrand = (
@@ -56,7 +48,6 @@ class Navbar extends Component {
       <nav className="navbar justify-content-between mb-3">
         {navbarBrand}
         <div className="navbar justify-content-between">
-          {messageCenter}
           {signup}
           {loginLogout}
         </div>

@@ -1,32 +1,22 @@
 import React, { Component } from "react";
 import "./ExpenseBoard.css";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faMap, faTrain, faPhone, faFood, faUtensils} from '@fortawesome/free-solid-svg-icons'
- 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faMap } from '@fortawesome/free-solid-svg-icons';
+import { faPet } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faTrain } from '@fortawesome/free-solid-svg-icons'
+
+
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
 import { NavLink } from "react-router-dom";
 import BarGraphs from "./BarGraphs.js";
 import NewEntryModal from "../../expense_page/components/NewEntryModal";
 
-
-
-
-
-
-library.add(fab, faCheckSquare, faCoffee, faMap, faTrain, faPhone, faUtensils)
-
-
-
-
-
-
 const makeCardStack = (cards, update) => {
   const allCards = cards.map(card => {
-    console.log(card, "we here ya'll")
-    const icon_living = `${card["icon"]}`
+    let icon_living = `${card["icon"]}`
     console.log(icon_living)
     switch (card["board_type"]) {
 

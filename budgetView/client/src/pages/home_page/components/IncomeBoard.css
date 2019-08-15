@@ -20,6 +20,9 @@
 .income-board .card {
   width: 11rem;
 }
+.income-board .card-title {
+  color: rgb(250, 77, 65);
+}
 .income-board .card-body h5 {
   font-size: 15px;
 }

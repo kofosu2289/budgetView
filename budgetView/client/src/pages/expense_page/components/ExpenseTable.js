@@ -83,7 +83,7 @@ class ExpenseTable extends Component {
           <br />
           <button
             type="button"
-            className="btn btn-primary delete-btn"
+            className="btn btn-outline-danger delete-btn"
             onClick={this.deleteCategory.bind(this)}
           >
             Delete Category

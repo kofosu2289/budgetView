@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./Summary.css";
 import { Doughnut } from "react-chartjs-2";
 
@@ -7,7 +6,14 @@ class CategoryContainer extends Component {
   //Function to update state for messages
 
   render() {
-    
+    const generate_color = () => {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
 
     const dataPoint = [];
     const labels = [];
@@ -17,8 +23,7 @@ class CategoryContainer extends Component {
       if (category.board_type === "expense") {
         dataPoint.push(category.current_total);
         labels.push(category.name);
-
-        colors.push(category.color);
+        colors.push(generate_color());
       }
     });
 
@@ -51,7 +56,7 @@ class CategoryContainer extends Component {
     return (
       <div className="summary text-center">
         <h4 className="py-3">Expenses</h4>
-        <div id="pie-chart">
+        <div className="pt-2" id="pie-chart">
           <Doughnut data={data} options={options} height={85} />
         </div>
       </div>

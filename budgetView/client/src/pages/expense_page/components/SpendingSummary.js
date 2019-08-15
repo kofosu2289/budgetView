@@ -6,10 +6,10 @@ class SpendingSummary extends Component {
   render() {
     console.log(this.props.category, "inside SpendingSummary");
 
-    const percentage =
+    let percentage =
       (this.props.category.current_total / this.props.category.goal) * 100;
-    const percent_string = percentage.toString();
-    const current_total = this.props.category.current_total;
+    let percent_string = percentage.toString();
+    let current_total = this.props.category.current_total;
     console.log(percent_string, typeof percent_string);
 
     if (percentage > 100) {

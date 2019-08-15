@@ -13,7 +13,7 @@ class NewIncomeModal extends Component {
       user_id: Number(localStorage.getItem('currUser_id')),
     };
 
-    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+    axios.post(`http://localhoat:3001/api/v1/category.json`, { category })
       .then(res => {
         this.props.update()
         this.props.close()

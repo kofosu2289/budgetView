@@ -15,14 +15,9 @@ module Api::V1
       @entry.destroy
     end
 
-    def new
-    end
-
-
     private
 
     def entry_params
-
       params.require(:entry).permit(
         :category_id,
         :amount,

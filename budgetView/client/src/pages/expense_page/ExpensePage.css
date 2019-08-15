@@ -1,0 +1,10 @@
+.expense-page h1 {
+  font-weight: 600;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.expense-page h4 {
+  font-weight: 400;
+  font-size: 15px;
+}
