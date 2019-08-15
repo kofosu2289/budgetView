@@ -35,14 +35,16 @@ class ExpensePage extends Component {
       <Container>
         { this.state && this.state.entries &&
           <div>
-            <h1>Expenses - {this.state.category.name}</h1>
+            <h1>{this.state.category.name}</h1>
             <SpendingSummary entries={this.state.entries}/>
             <br/>
             <Popup trigger={
               <button type="button" className="btn btn-primary px-4">
               Add Entry
               </button>} modal closeOnDocumentClick>
-              <NewEntryModal update={this.update.bind(this)} id={this.state.category.id} updateHome={this.props.update}/>
+            {close => (
+              <NewEntryModal update={this.update.bind(this)} id={this.state.category.id} updateHome={this.props.update} />
+            )}
             </Popup>
             <ExpenseTable entries={this.state.entries} id={this.state.category.id} update={this.update.bind(this)} updateHome={this.props.update}/>
           </div>

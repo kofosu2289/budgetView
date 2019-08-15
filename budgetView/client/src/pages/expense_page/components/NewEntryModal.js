@@ -21,7 +21,10 @@ class NewEntryModal extends Component {
       axios.post(`http://localhost:3001/api/v1/entry.json`, { entry })
         .then(res => {
           this.props.update()
-          this.props.updateHome()
+          this.props.close()
+          if (this.props.updateHome) {
+            this.props.updateHome()
+          }
         })
 
       console.log("HIHI")
@@ -83,7 +86,7 @@ class NewEntryModal extends Component {
               type="date"
               className="form-control"
               id="date"
-              placeholder="i.e. $75.00"
+              
             />
           </div>
         </div>

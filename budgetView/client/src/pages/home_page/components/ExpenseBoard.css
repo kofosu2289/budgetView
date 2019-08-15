@@ -1,21 +1,7 @@
 #expense-card-container {
   height: 100%;
-  max-height: 250px;
+  max-height: 320px;
   overflow-y: scroll;
-}
-.expense-board h4 {
-  font-weight: 600;
-  font-size: 22px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.expense-board h4:after {
-  content: "";
-  display: block;
-  width: 3em;
-  max-width:70%;
-  border-bottom: 0.1em solid rgb(250, 77, 65);
-  margin: 10px auto 0;
 }
 .expense-board .card-body h5 {
   font-size: 15px;
@@ -26,8 +12,7 @@
 .expense-board .icons {
   font-size: 2.4rem;
 }
-.category-btn {
-  margin-top: 12px;
+.quick-entry-btn {
   font-size: 13px;
   font-weight: 600;
 }

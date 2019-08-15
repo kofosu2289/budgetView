@@ -1,7 +1,17 @@
-.summary-board {
-  border-width: 2px !important;
+.summary h4 {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
-
-#summaryDiv {
-  padding-right: 200;
+.summary h4:after {
+  content: "";
+  display: block;
+  width: 3em;
+  max-width:70%;
+  border-bottom: 0.1em solid rgb(250, 77, 65);
+  margin: 10px auto 0;
+}
+#pie-chart {
+  padding-left: 300px;
 }
