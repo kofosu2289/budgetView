@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import SpendingSummary from "./components/SpendingSummary";
+import BarGraphs from "../home_page/components/BarGraphs";
 import ExpenseTable from "./components/ExpenseTable";
 import axios from "axios";
 import NewEntryModal from "./components/NewEntryModal";
@@ -39,8 +39,7 @@ class ExpensePage extends Component {
             <h1 align='center'>{this.state.category.name}</h1>
             <h4 align='center'>budgeted: ${this.state.category.goal}</h4>
             <br/>
-            <SpendingSummary entries={this.state.entries}/>
-            <br/>
+            <BarGraphs card={this.state.category}/>            <br/>
             <Popup trigger={
               <button type="button" className="btn btn-primary px-4">
               Add Entry

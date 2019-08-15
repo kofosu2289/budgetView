@@ -15,8 +15,7 @@ handleClick(){
       { category:
         {
           name: name,
-          user_id: 1,
-          board_type: 'income',
+          user_id: localStorage.getItem('currUser_id'),          board_type: 'income',
           goal: goal_total,
           current_total: current_total
         }

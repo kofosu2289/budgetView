@@ -30,7 +30,9 @@ class LoginForm extends Component {
     axios.post(`/api/v1/sessions`, { ...this.state.credentials })
       .then(res => {
         const token = res.data.jwt;
+        const id  = res.data.id
         localStorage.setItem('jwtToken', token);
+        localStorage.setItem('currUser_id', id);
         this.setState({ redirect: true, error: false })
         console.log(res)
       })
@@ -58,7 +60,7 @@ class LoginForm extends Component {
           <div className="col-sm-6 col-sm-offset-1">
             <form onSubmit={this.onSave} >
               <div className="form-group input">
-                Email <input type="email" className="form-control" id="inputEmail3" name="email" label="email" value={this.state.credentials.email} onChange={this.onChange} />
+                Email {" "}<input type="email" className="form-control" id="inputEmail3" name="email" label="email" value={this.state.credentials.email} onChange={this.onChange} />
               </div>
               <div className="form-group input">
                 Password <input type="password" className="form-control" id="inputPassword3" name="password" label="password" value={this.state.credentials.password} onChange={this.onChange}/>

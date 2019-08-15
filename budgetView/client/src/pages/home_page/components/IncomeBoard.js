@@ -68,7 +68,7 @@ class IncomeBoard extends Component {
         </div>
         <Popup
           trigger={
-            <button type="button" className="btn btn-lg income-btn">
+            <button type="button" className="btn btn-outline-danger income-btn">
               Add Income Source
             </button>
           }

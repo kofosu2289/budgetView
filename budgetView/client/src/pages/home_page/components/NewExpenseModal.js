@@ -14,7 +14,7 @@ class NewExpenseModal extends Component {
       board_type: 'expense',
       goal: event.target.maxGoal.value,
       current_total: 0,
-      user_id: 1,
+      user_id: localStorage.getItem('currUser_id'),
     };
 
     axios.post(`http://localhost:3001/api/v1/category.json`, { category })

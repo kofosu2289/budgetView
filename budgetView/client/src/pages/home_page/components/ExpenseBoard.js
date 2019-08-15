@@ -14,26 +14,42 @@ const makeCardStack = (cards, update) => {
         return (
           <div className="card my-2 mx-1">
             <div className="card-body">
-              <div className="icon-entry">
-                <NavLink to={`/expense/${card["id"]}`}>
-                  <FontAwesomeIcon icon="home" className="icons pb-2" />
-                  <h5 className="card-title">{card["name"]}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    budgeted: ${card["goal"]}
-                  </h6>
-                </NavLink>
-                <Popup trigger={
-                    <button id="this-button" type="button" className="btn btn-lg category-btn">
-                      + Entry
-                    </button>
-                  } modal closeOnDocumentClick>
-                  {close => (
-                    <NewEntryModal id={card.id} update={update} close ={close.bind(this)}/>
-                  )}
-                </Popup>
+              <div className="row">
+                <div className="col-md-2">
+                  <NavLink to={`/expense/${card["id"]}`}>
+                    <FontAwesomeIcon icon="home" className="icons pb-2" />
+                    <h5 className="card-title">{card["name"]}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      Budgeted - ${card["goal"]}
+                    </h6>
+                  </NavLink>
+                </div>
+                <div className="col-md-8 my-auto">
+                  <BarGraphs card={card} />
+                </div>
+                <div className="col-md-2 my-auto">
+                  <Popup
+                    trigger={
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger quick-entry-btn"
+                      >
+                        + Expense Entry
+                      </button>
+                    }
+                    modal
+                    closeOnDocumentClick
+                  >
+                    {close => (
+                      <NewEntryModal
+                        id={card.id}
+                        update={update}
+                        close={close.bind(this)}
+                      />
+                    )}
+                  </Popup>
+                </div>
               </div>
-
-              <BarGraphs card={card} />
             </div>
           </div>
         );
@@ -47,18 +63,23 @@ class ExpenseBoard extends Component {
     const { component: Component, ...props } = this.props;
     return (
       <div className="expense-board py-4 text-center">
-        <h4 className="py-3">Expense Boards</h4>
         <div id="expense-card-container">
           {makeCardStack(props.categories, props.update)}
         </div>
         <Popup
           trigger={
-            <button type="button" className="btn btn-lg category-btn">
+            <button
+              type="button"
+              className="btn btn-outline-danger category-btn"
+            >
               Add Category
             </button>
-          } modal closeOnDocumentClick>
+          }
+          modal
+          closeOnDocumentClick
+        >
           {close => (
-            <NewExpenseModal update={props.update} close ={close.bind(this)}/>
+            <NewExpenseModal update={props.update} close={close.bind(this)} />
           )}
         </Popup>
       </div>
