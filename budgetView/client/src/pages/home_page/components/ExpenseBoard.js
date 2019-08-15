@@ -12,19 +12,20 @@ const makeCardStack = (cards, update) => {
     switch (card["board_type"]) {
       case "expense":
         return (
-          <div className="card my-2 mx-1">
+         
+            <div className="card my-2 mx-1">
               <div className="card-body">
-            <NavLink to={`/expense/${card["id"]}`}>
+              <div className="icon-entry">
+              <NavLink to={`/expense/${card["id"]}`}>
                 <FontAwesomeIcon icon="home" className="icons pb-2" />
                 <h5 className="card-title">{card["name"]}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">
-                  ${card["goal"]}
+                  budgeted: ${card["goal"]}
                 </h6>
-          </NavLink>
-              <BarGraphs data_needed={card} />
-              <Popup
+                </NavLink>
+                <Popup
                   trigger={
-                    <button type="button" className="btn btn-lg category-btn">
+                    <button id="this-button" type="button" className="btn btn-lg category-btn">
                       + Entry
                     </button>
                   }
@@ -32,8 +33,15 @@ const makeCardStack = (cards, update) => {
                   closeOnDocumentClick>
                   <NewExpenseEntry category={card} update={update} />
                 </Popup>
+                </div>
+
+                <BarGraphs data_needed={card} />
+
+                
+
               </div>
             </div>
+       
         );
     }
   });
@@ -46,7 +54,6 @@ class ExpenseBoard extends Component {
     return (
       <div className="expense-board py-4 text-center">
         <h4 className="py-3">Expense Boards</h4>
-        <div id="expense-card-container">{makeCardStack(props.categories)}</div>
         <Popup
           trigger={
             <button type="button" className="btn btn-lg category-btn">
@@ -54,10 +61,11 @@ class ExpenseBoard extends Component {
             </button>
           }
           modal
-          closeOnDocumentClick
-        >
+          closeOnDocumentClick>
           <NewExpenseModal update={props.update} />
         </Popup>
+        <div>{makeCardStack(props.categories, props.update)}</div>
+      
       </div>
     );
   }

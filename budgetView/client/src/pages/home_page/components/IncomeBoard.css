@@ -6,6 +6,16 @@
 .income-board h4 {
   font-weight: 600;
   font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.income-board h4:after {
+  content: "";
+  display: block;
+  width: 3em;
+  max-width:70%;
+  border-bottom: 0.1em solid rgb(250, 77, 65);
+  margin: 10px auto 0;
 }
 .income-board .card {
   width: 11rem;
