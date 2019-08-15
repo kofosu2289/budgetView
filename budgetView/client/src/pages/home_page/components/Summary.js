@@ -102,7 +102,7 @@ class CategoryContainer extends Component {
       responsive: true,
   	  legend: {
   	  	"display": true,
-  	  	"position":"top"
+  	  	"position":"right"
   	  
   	  },
   	},
@@ -138,19 +138,10 @@ class CategoryContainer extends Component {
 
   
   return(
-  	<div>
-    <h2 align='center'>Expenses</h2>
-
-  	<Doughnut data={data} options={options} width = {500} height = {10}/>
-
-    <br></br>
-
-
-    {/* <h2 align='center'>Income</h2>
-
-    <Doughnut data={data2} options={options2} width = {600} height = {250}/> */}
-
-
+  	<div style={{'padding-right':200}}>
+	    <h4 align='left'>Spending Summary</h4>
+	  	<Doughnut data={data} options={options} height={100}/>
+			<br/>
   	</div>
   	)
 
