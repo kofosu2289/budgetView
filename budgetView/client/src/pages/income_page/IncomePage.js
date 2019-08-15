@@ -5,6 +5,7 @@ import NewIncomeEntry from "./components/NewIncomeEntry";
 import axios from "axios";
 import Popup from "reactjs-popup";
 import { Redirect } from "react-router-dom";
+import "./IncomePage.css";
 
 class IncomePage extends Component {
   update() {
@@ -34,14 +35,14 @@ class IncomePage extends Component {
     return (
       <Container>
         {this.state && this.state.entries && (
-            <div>
-              <h1 align="center">{this.state.category.name}</h1>
-              <h4 align="center">
-                total: ${this.state.category.current_total}
+            <div className="income-page">
+              <h1 className="text-center">{this.state.category.name}</h1>
+              <h4 className="text-center mb-4">
+                Total - ${this.state.category.current_total}
               </h4>
               <br />
               <Popup trigger={
-                  <button type="button" className="btn btn-primary px-4">
+                  <button type="button" className="btn btn-outline-danger px-4">
                     Add Entry
                   </button> } modal closeOnDocumentClick>
                 {close => (
