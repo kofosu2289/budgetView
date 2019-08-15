@@ -37,7 +37,7 @@ class IncomePage extends Component {
         {this.state && this.state.entries && (
             <div className="income-page">
               <h1 className="text-center">{this.state.category.name}</h1>
-              <h4 className="text-center mb-4">
+              <h4 className="text-center mb-4 income-total">
                 Total - ${this.state.category.current_total}
               </h4>
               <br />

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import "./budgetEditor.css";
 
 class BudgetEditor extends Component {
 
@@ -27,7 +27,7 @@ class BudgetEditor extends Component {
   render() {
     const { component: Component, ...props } = this.props;
     return (
-      <form onSubmit={this.editCategory}>
+      <form className="budget-edit-form text-center" onSubmit={this.editCategory}>
         <h4 className="py-4">Edit your category budget:</h4>
         <div className="form-group row px-4">
           <label htmlFor="maxGoal" className="col-sm-3 col-form-label">
@@ -39,7 +39,7 @@ class BudgetEditor extends Component {
         </div>
         <div className="form-group row px-4">
           <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary px-4">
+            <button type="submit" className="btn btn-outline-danger px-4">
               Update
             </button>
           </div>

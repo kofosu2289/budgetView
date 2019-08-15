@@ -27,7 +27,7 @@ class NewEntryModal extends Component {
   render() {
     const { component: Component, ...props } = this.props;
     return (
-      <form onSubmit={this.submitNewCategory}>
+      <form className="entry-form text-center" onSubmit={this.submitNewCategory}>
         <h4 className="py-4">Add New Entry:</h4>
         <div className="form-group row px-4">
           <label htmlFor="entryName" className="col-sm-3 col-form-label">
@@ -78,7 +78,7 @@ class NewEntryModal extends Component {
         </div>
         <div className="form-group row px-4">
           <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary px-4">
+            <button type="submit" className="btn btn-outline-danger px-4">
               Add
             </button>
           </div>

@@ -40,7 +40,7 @@ class ExpensePage extends Component {
         { this.state && this.state.entries &&
           <div className="expense-page">
             <h1 className="text-center">{this.state.category.name}</h1>
-            <h4 className="text-center mb-4">Budgeted - ${this.state.category.goal}</h4>
+            <h4 className="text-center mb-4" id="expense-budgeted">Budgeted: ${this.state.category.goal}</h4>
             <BarGraphs card={this.state.category}/>
             <div className="mt-4 mb-2">
               <Popup trigger={
