@@ -20,7 +20,7 @@ class CategoryContainer extends Component {
 
     this.setState({ categories: [
       ...this.state.categories,
-      { 
+      {
         id: newCategory.id,
         name: newCategory.name,
         user_id: newCategory.user_id,
@@ -34,20 +34,17 @@ class CategoryContainer extends Component {
     })
   }
 
-
-
-  
 	componentDidMount() {
-	axios
-	  .get("http://localhost:3001/api/v1/category.json")
-	  .then(response => {
-	    this.setState({
-	      categories: response.data
-	    });
-      console.log(this.state)
-	  })
-	  .catch(error => console.log(error));
+		axios.get("http://localhost:3001/api/v1/category.json")
+		  .then(response => {
+		    this.setState({
+		      categories: response.data
+		    });
+	      console.log(this.state)
+		  })
+		  .catch(error => console.log(error));
 	}
+
   render() {
 
 
@@ -62,88 +59,41 @@ class CategoryContainer extends Component {
 
     }
 
-
-
   	const dataPoint = [];
     const labels = [];
     const colors = [];
-    const dataPoint2 = [];
-    const labels2 = [];
-    const colors2 = [];  
-  	const name = this.state.categories;
 
-  	name.forEach(function(element){
-      if (element.board_type === 'expense'){
-
-  		const to_add = element.current_total
-      const to_add2 = element.name
-      const to_add3 = generate_color()
-
-  		dataPoint.push(to_add);
-      labels.push(to_add2);
-      colors.push(to_add3);
+  	this.state.categories.forEach(function(category){
+      if (category.board_type === 'expense'){
+	  		dataPoint.push(category.current_total);
+	      labels.push(category.name);
+	      colors.push(generate_color());
       }
+		});
 
-      else {
-      const to_add = element.current_total
-      const to_add2 = element.name
-      const to_add3 = generate_color()
-
-      dataPoint2.push(to_add);
-      labels2.push(to_add2);
-      colors2.push(to_add3);
-
-      }
-
-
-  	});
-
-  	const options = {
+    const options = {
       responsive: true,
   	  legend: {
   	  	"display": true,
-  	  	"position":"right"
-  	  
+  	  	"position":"right",
   	  },
-  	},
+  	}
 
-
-    data= {
+    const data = {
             labels: labels,
             datasets: [{
-            label: "My First dataset",
-            backgroundColor: colors,
-            data: dataPoint,
+	            backgroundColor: colors,
+	            data: dataPoint,
             }]
         }
 
-        const options2 = {
-          responsive: true,
-          legend: {
-            "display": true,
-            "position":"top"
-          
-          },
-        },
-
-
-        data2= {
-                labels: labels2,
-                datasets: [{
-                label: "My First dataset",
-                backgroundColor: colors2,
-                data: dataPoint2,
-                }]
-            }
-
-  
-  return(
-  	<div style={{'padding-right':200}}>
-	    <h4 align='left'>Spending Summary</h4>
-	  	<Doughnut data={data} options={options} height={100}/>
-			<br/>
-  	</div>
-  	)
+	  return(
+	  	<div style={{'padding-right':200}}>
+		    <h4 align='left'>Spending Summary</h4>
+		  	<Doughnut data={data} options={options} height={100}/>
+				<br/>
+	  	</div>
+	  	)
 
 	}
 }
