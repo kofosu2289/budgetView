@@ -33,7 +33,7 @@ const makeCardStack = (cards) => {
 class ExpenseBoard extends Component {
   render() {
     const { component: Component, ...props } = this.props
-    return (<div className="expense-board col-md-3 py-4 text-center">
+    return (<div className="expense-board py-4 text-center">
               <h4 className="py-3">Expense Boards</h4>
               <div className="card-deck">
                 {makeCardStack(props.categories)}

@@ -3,6 +3,7 @@ import { Container, Row} from "reactstrap";
 import ExpenseBoard from "./components/ExpenseBoard";
 import Summary from "./components/Summary";
 import IncomeBoard from "./components/IncomeBoard";
+import Rundown from "./components/Rundown";
 import { Redirect } from 'react-router-dom';
 
 class HomePage extends Component {
@@ -20,10 +21,11 @@ class HomePage extends Component {
         <Row>
           <div className="col-md-3">
             <IncomeBoard />
+            <Rundown />
           </div>
           <div className="col-md-9">
             <div>
-              GRAPH HERE            
+              <Summary />
             </div>
             <div>
               <ExpenseBoard categories={props.categories} update={props.update} {...props} />
