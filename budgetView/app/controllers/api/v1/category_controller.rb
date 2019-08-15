@@ -2,8 +2,6 @@ module Api::V1
 
   class CategoryController < ApplicationController
 
-    skip_before_action :authenticate, :raise => false
-    
     def index
       @categories = Category.all
       render json: @categories
@@ -21,7 +19,11 @@ module Api::V1
       category = Category.create(category_params)
     end
 
-
+    def update
+      @category = Category.find(params['id'])
+      @category.update_attributes(category_params)
+      
+    end
 
     def new
       category = Category.new
@@ -34,13 +36,13 @@ module Api::V1
       redirect_to '/'
     end
 
-
+   
 
     private
 
     def category_params
       params.require(:category).permit(
-
+    
         :name,
         :user_id,
         :board_type,

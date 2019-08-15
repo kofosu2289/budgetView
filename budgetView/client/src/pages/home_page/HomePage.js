@@ -18,9 +18,17 @@ class HomePage extends Component {
     return (
       <Container>
         <Row>
-          <IncomeBoard />
-          <Summary />
-          <ExpenseBoard categories={props.categories} update={props.update} {...props}/>
+          <div className="col-md-3">
+            <IncomeBoard />
+          </div>
+          <div className="col-md-9">
+            <div>
+              GRAPH HERE            
+            </div>
+            <div>
+              <ExpenseBoard categories={props.categories} update={props.update} {...props} />
+            </div>
+          </div>
         </Row>
       </Container>
     );
