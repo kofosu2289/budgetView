@@ -24,7 +24,7 @@ handleClick(){
     )
     .then(response => {
       this.props.update()
-      
+      this.props.close()
     })
     .catch(error => console.log(error))
   

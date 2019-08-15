@@ -1,0 +1,7 @@
+.entryDelete {
+  visibility: hidden;
+}
+
+.entryRow:hover .entryDelete {
+  visibility: visible;
+}

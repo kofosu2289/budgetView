@@ -75,7 +75,9 @@ class IncomeBoard extends Component {
           modal
           closeOnDocumentClick
         >
-          <NewIncomeModal />
+         {close => (
+              <NewIncomeModal update={this.props.update} close ={close.bind(this)}/>
+            )}
         </Popup>
       </div>
     );
