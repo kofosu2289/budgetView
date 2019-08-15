@@ -10,13 +10,17 @@ class Navbar extends Component {
 
   logout = (event) => {
     localStorage.removeItem('jwtToken')
+    localStorage.removeItem('fbToken')
+
   }
 
   render() {
     const user = localStorage.getItem('jwtToken')
+    const fbUser = localStorage.getItem('fbToken')
+
     let button1
     let button2
-    if (user) {
+    if (user || fbUser) {
       button1 =
       <NavLink to='/'>
         <div className="navbar-right-div logout" onClick={this.logout}>Logout</div>
