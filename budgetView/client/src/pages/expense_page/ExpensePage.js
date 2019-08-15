@@ -35,7 +35,10 @@ class ExpensePage extends Component {
       <Container>
         { this.state && this.state.entries &&
           <div>
-            <h1>{this.state.category.name}</h1>
+           <br/>
+            <h1 align='center'>{this.state.category.name}</h1>
+            <h4 align='center'>budgeted: ${this.state.category.goal}</h4>
+            <br/>
             <SpendingSummary entries={this.state.entries}/>
             <br/>
             <Popup trigger={

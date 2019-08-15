@@ -40,8 +40,8 @@ class IncomePage extends Component {
       <Container>
         { this.state && this.state.entries &&
           <div>
-            <h1>Income Source - {this.state.category.name}</h1>
-            <SpendingSummary category={this.state.category} entries={this.state.entries}/>
+            <h1 align='center'>{this.state.category.name}</h1>
+            <h4 align='center'>total: ${this.state.category.current_total}</h4>
             <br/>
             <Popup trigger={
                   <button type="button" className="btn btn-primary px-4">
