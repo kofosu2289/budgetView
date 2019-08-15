@@ -44,7 +44,7 @@ class App extends Component {
         this.setState({
           categories: response.data
         });
-        console.log(response.data);
+        console.log(response);
       })
       .catch(error => console.log(error));
   }
