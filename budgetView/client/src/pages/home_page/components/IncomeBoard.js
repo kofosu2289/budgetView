@@ -47,6 +47,7 @@ class IncomeBoard extends Component {
     return (
       <div className="income-board py-4 text-center">
         <h4>Income Boards</h4>
+        <div id="income-card-container">
         {income_categories.map(category => {
           return (
             <NavLink to={`/income/${category["id"]}`}>
@@ -64,7 +65,7 @@ class IncomeBoard extends Component {
             </NavLink>
           );
         })}
-
+        </div>
         <Popup
           trigger={
             <button type="button" className="btn btn-lg income-btn">

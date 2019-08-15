@@ -35,7 +35,7 @@ class ExpenseBoard extends Component {
     return (
       <div className="expense-board py-4 text-center">
         <h4 className="py-3">Expense Boards</h4>
-        <div>{makeCardStack(props.categories)}</div>
+        <div id="expense-card-container">{makeCardStack(props.categories)}</div>
         <Popup
           trigger={
             <button type="button" className="btn btn-lg category-btn">
