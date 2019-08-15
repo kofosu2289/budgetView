@@ -16,10 +16,11 @@ import {
   faUtensils,
   faTruck,
   faGamepad,
-  faMoon
+  faMoon,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faHome, faCar, faUtensils, faTruck, faGamepad, faMoon);
+library.add(faHome, faCar, faUtensils, faTruck, faGamepad, faMoon, faTrash);
 
 
 class App extends Component {

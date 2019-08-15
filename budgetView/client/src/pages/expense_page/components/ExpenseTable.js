@@ -1,34 +1,50 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./ExpenseTable.css";
-
-
-const makeEntryRow = (entries) => {
-  let count = 0;
-  const allRows = entries.map(entry => {
-    count += 1;
-    return(
-      <tr>
-        <th scope="row">{count}</th>
-        <td>{entry.name}</td>
-        <td>{entry.date}</td>
-        <td>$ {entry.amount}</td>
-        <td>{entry.description}</td>
-      </tr>
-    );
-
-  })
-  return allRows
-}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ExpenseTable extends Component {
-  handleClick = event => {
+
+
+    makeEntryRow = (entries) => {
+    let count = 0;
+    const allRows = entries.map(entry => {
+      count += 1;
+      return(
+        <tr className='entryRow'>
+          <th scope="row">{count}</th>
+          <td>{entry.name}</td>
+          <td>{entry.date}</td>
+          <td>$ {entry.amount}</td>
+          <td>{entry.description}</td>
+          <td>
+            <button type="button" className="btn btn-primary delete-btn entryDelete" onClick={() => this.deleteEntry(entry.id)}><FontAwesomeIcon icon="trash"/></button>
+          </td>
+        </tr>
+      );
+
+    })
+    return allRows
+  }
+
+
+  deleteCategory = event => {
     event.preventDefault();
 
     const category_id = this.props.id;
-    
+
     axios.delete(`http://localhost:3001/api/v1/category/${category_id}`)
       .then(res => {
+        this.props.updateHome()
+      })
+
+  }
+
+  deleteEntry = entry_id => {
+
+    axios.delete(`http://localhost:3001/api/v1/entry/${entry_id}`)
+      .then(res => {
+        this.props.update()
         this.props.updateHome()
       })
   }
@@ -39,7 +55,6 @@ class ExpenseTable extends Component {
     const { component: Component, ...props } = this.props
     return (
       <div>
-
         <div className="expense-table mx-auto py-4 col-md-12">
           <table className="table table-hover">
             <thead>
@@ -49,15 +64,15 @@ class ExpenseTable extends Component {
                 <th scope="col">Date</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Description</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-            {makeEntryRow(props.entries)}
+            {this.makeEntryRow(props.entries)}
             </tbody>
           </table>
-          <br />
-          <button type="button" className="btn btn-primary delete-btn" onClick={this.handleClick.bind(this)}>Delete Category</button>
-
+          <br/>
+          <button type="button" className="btn btn-primary delete-btn" onClick={this.deleteCategory.bind(this)}>Delete Category</button>
         </div>
       </div>
     );
