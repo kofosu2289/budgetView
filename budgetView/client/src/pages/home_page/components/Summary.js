@@ -3,29 +3,35 @@ import "./Summary.css";
 import { Doughnut } from "react-chartjs-2";
 
 class CategoryContainer extends Component {
-  //Function to update state for messages
 
   render() {
-    const generate_color = () => {
-      const letters = "0123456789ABCDEF";
-      let color = "#";
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    };
+    console.log(this.props.categories,'we out here here')
+    let reverse_labels
+    let reverse_dataPoints
+    let example_graph_message
+    if (this.props.categories.length === 0){
+       reverse_labels = ['Food', 'School', 'Hobbies', 'Transportation'];
+       reverse_dataPoints = [25, 25, 25, 25];
+      
+
+    }
+
+    else{
+    
 
     const dataPoint = [];
     const labels = [];
-    const colors = [];
 
     this.props.categories.forEach(function(category) {
       if (category.board_type === "expense") {
         dataPoint.push(category.current_total);
         labels.push(category.name);
-        colors.push(generate_color());
       }
     });
+
+     reverse_dataPoints = dataPoint.reverse();
+     reverse_labels = labels.reverse();
+  }
 
     const options = {
       responsive: true,
@@ -44,23 +50,37 @@ class CategoryContainer extends Component {
     };
 
     const data = {
-      labels: labels,
+      labels: reverse_labels,
       datasets: [
         {
-          backgroundColor: colors,
-          data: dataPoint
+          backgroundColor: ['#740001','#ae0001',' #eeba30','#d3a625','#000000','#f72f53','#000080','#008000','#fef65b','#9EB6B8', '#767BA5', '#2C3571', '#008080', '#FF6347'],
+          data: reverse_dataPoints
         }
       ]
     };
 
+    if (this.props.categories.length === 0){
+       example_graph_message = 'Example Chart - Add Stuff'
+    }
+    else{
+       example_graph_message = ''
+
+    }
+
+
     return (
       <div className="summary text-center">
+
         <h4 className="py-3">Expenses</h4>
+        <h5>{example_graph_message}</h5>
         <div className="pt-2" id="pie-chart">
           <Doughnut data={data} options={options} height={85} />
         </div>
       </div>
     );
+  
+
+
   }
 }
 

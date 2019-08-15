@@ -3,29 +3,39 @@ import "./NewExpenseModal.css";
 import axios from "axios";
 
 class NewExpenseModal extends Component {
+
   submitNewCategory = event => {
-    console.log(event.target.exampleFormControlSelect1.value, 'we testing tho')
 
       event.preventDefault();
+
+     
         const category = {
           name: event.target.categoryName.value,
           board_type: 'expense',
           icon: event.target.exampleFormControlSelect1.value,
-          color: 'blue',
+         
           goal: event.target.maxGoal.value,
           current_total: 0,
           user_id: Number(localStorage.getItem('currUser_id')),
       };
 
+
       axios.post(`http://localhost:3001/api/v1/category.json`, { category })
         .then(res => {
+          
           this.props.update()
           this.props.close()
+          
+
         })
     }
 
 
+    
+
+
   render() {
+
 
 
 
@@ -55,11 +65,11 @@ class NewExpenseModal extends Component {
           </label>
           <div className="col-sm-9">
             <select className="form-control" id="exampleFormControlSelect1">
-              <option>Map</option>
-              <option>Garbage Bin</option>
-              <option>Train</option>
-              <option>Phone</option>
-              <option>Pet</option>
+              <option>map</option>
+              <option>coffee</option>
+              <option>train</option>
+              <option>phone</option>
+              <option>utensils</option>
             </select>
           </div>
         </div>

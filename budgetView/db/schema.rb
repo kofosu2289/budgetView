@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_180445) do
+ActiveRecord::Schema.define(version: 2019_08_15_192440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_180445) do
     t.integer "user_id"
     t.decimal "goal", precision: 10, scale: 2
     t.decimal "current_total", precision: 10, scale: 2
+    t.string "icon"
   end
 
   create_table "entries", force: :cascade do |t|

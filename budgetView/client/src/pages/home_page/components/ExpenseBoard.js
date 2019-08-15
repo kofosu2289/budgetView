@@ -1,23 +1,39 @@
 import React, { Component } from "react";
 import "./ExpenseBoard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faMap } from '@fortawesome/free-solid-svg-icons';
-import { faPet } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faTrain } from '@fortawesome/free-solid-svg-icons'
-
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faMap, faTrain, faPhone, faFood, faUtensils} from '@fortawesome/free-solid-svg-icons'
+ 
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
 import { NavLink } from "react-router-dom";
 import BarGraphs from "./BarGraphs.js";
 import NewEntryModal from "../../expense_page/components/NewEntryModal";
 
+
+
+
+
+
+library.add(fab, faCheckSquare, faCoffee, faMap, faTrain, faPhone, faUtensils)
+
+
+
+
+
+
 const makeCardStack = (cards, update) => {
+  const card_count = 0;
   const allCards = cards.map(card => {
-    let icon_living = `${card["icon"]}`
-    console.log(icon_living)
+  card_count++;
+
+    
+  const icon_living = `${card["icon"]}`;
+    
+
+
+  
     switch (card["board_type"]) {
 
       case "expense":
@@ -30,7 +46,7 @@ const makeCardStack = (cards, update) => {
                     <FontAwesomeIcon icon={icon_living}/>
                     <h5 className="card-title">{card["name"]}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">
-                      Budgeted - ${card["goal"]}
+                      Budgeted: ${card["goal"]}
                     </h6>
                   </NavLink>
                 </div>
@@ -51,12 +67,20 @@ const makeCardStack = (cards, update) => {
             </div>
           </div>
         );
+       
+
     }
+
   });
   return allCards;
 };
 
 class ExpenseBoard extends Component {
+
+  
+
+
+
   render() {
     const { component: Component, ...props } = this.props;
     return (
@@ -69,7 +93,7 @@ class ExpenseBoard extends Component {
               Add Category
             </button>} modal closeOnDocumentClick>
           {close => (
-            <NewExpenseModal update={props.update} close={close.bind(this)} />
+            <NewExpenseModal   categories={props.categories} update={props.update} close={close.bind(this)} />
           )}
         </Popup>
       </div>
