@@ -80,11 +80,15 @@ class ExpenseTable extends Component {
             </thead>
             <tbody>{this.makeEntryRow(props.entries)}</tbody>
           </table>
-          <br />
+          
           <button
-            type="button"
-            className="btn btn-outline-danger delete-btn"
-            onClick={this.deleteCategory.bind(this)}
+            type = "button"
+            className = "btn btn-outline-danger delete-btn"
+            onClick = {(e) => {
+              if (window.confirm("Are you sure you want to delete this entire category? \nThis will result in the loss of all your expense entry data. \t\t\nYou will not be able to undo this action.")) {
+                this.deleteCategory(e);
+              }
+            }}
           >
             Delete Category
           </button>
