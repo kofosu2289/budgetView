@@ -1,48 +1,52 @@
 import React, { Component } from "react";
 import "./NewIncomeModal.css";
-import axios from 'axios';
-
+import axios from "axios";
 
 class NewIncomeModal extends Component {
+  handleClick = event => {
+    event.preventDefault();
+    const category = {
+      name: event.target.categoryName.value,
+      board_type: "income",
+      goal: 0,
+      current_total: 0,
+      user_id: Number(localStorage.getItem('currUser_id')),
+    };
 
-handleClick(){
-  const name = this.refs.name.value;
-  const current_total = this.refs.current_total.value;
-  const goal_total = this.refs.goal_total.value;
-
-  axios.post(
-      'http://localhost:3001/api/v1/category',
-      { category:
-        {
-          name: name,
-          user_id: localStorage.getItem('currUser_id'),          board_type: 'income',
-          goal: goal_total,
-          current_total: current_total
-        }
-      }
-    )
-    .then(response => {
-      this.props.update()
-      this.props.close()
-    })
-    .catch(error => console.log(error))
-  
-
-}
+    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+      .then(res => {
+        this.props.update()
+        this.props.close()
+      })
+  }
 
   render() {
+    const { component: Component, ...props } = this.props;
     return (
-      <div>
-
-       <input ref='name' placeholder='Title' />
-       <input ref='current_total' placeholder='Current Total' />
-       <input ref='goal_total' placeholder='Goal Total' />
-
-
-        <button onClick={this.handleClick.bind(this)}>Submit</button>
-
-     </div>
-)
+      <form onSubmit={this.handleClick}>
+        <h4 className="py-4">Add new Income category:</h4>
+        <div className="form-group row px-4">
+          <label htmlFor="categoryName" className="col-sm-3 col-form-label">
+            Income Source Name:
+          </label>
+          <div className="col-sm-9">
+            <input
+              type="text"
+              className="form-control"
+              id="categoryName"
+              placeholder="i.e. Job 1"
+            />
+          </div>
+        </div>
+        <div className="form-group row px-4">
+          <div className="col-sm-12">
+            <button type="submit" className="btn btn-outline-danger px-4">
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+    );
   }
 }
 

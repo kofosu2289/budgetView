@@ -1,42 +1,33 @@
 import React, { Component } from "react";
 import "./NewEntryModal.css";
 import axios from "axios";
-import { Redirect } from 'react-router-dom';
-
+import { Redirect } from "react-router-dom";
 
 class NewEntryModal extends Component {
-
-
   submitNewCategory = event => {
-      event.preventDefault();
+    event.preventDefault();
 
-      const entry = {
-        name: event.target.entryName.value,
-        category_id: this.props.id,
-        amount: event.target.amount.value,
-        description: event.target.description.value,
-        date: event.target.date.value,
-      };
+    const entry = {
+      name: event.target.entryName.value,
+      category_id: this.props.id,
+      amount: event.target.amount.value,
+      description: event.target.description.value,
+      date: event.target.date.value
+    };
 
-      axios.post(`http://localhost:3001/api/v1/entry.json`, { entry })
-        .then(res => {
-          this.props.update()
-          this.props.close()
-          if (this.props.updateHome) {
-            this.props.updateHome()
-          }
-        })
-
-      console.log("HIHI")
-
-    }
-
+    axios.post(`http://localhost:3001/api/v1/entry.json`, { entry }).then(res => {
+      this.props.update();
+      this.props.close();
+      if (this.props.updateHome) {
+        this.props.updateHome();
+      }
+    });
+  };
 
   render() {
-    const { component: Component, ...props } = this.props
-    console.log('PROPS: ', this.props)
+    const { component: Component, ...props } = this.props;
     return (
-      <form onSubmit={ this.submitNewCategory }>
+      <form onSubmit={this.submitNewCategory}>
         <h4 className="py-4">Add New Entry:</h4>
         <div className="form-group row px-4">
           <label htmlFor="entryName" className="col-sm-3 col-form-label">
@@ -82,12 +73,7 @@ class NewEntryModal extends Component {
             Date:
           </label>
           <div className="col-sm-9">
-            <input
-              type="date"
-              className="form-control"
-              id="date"
-              
-            />
+            <input type="date" className="form-control" id="date" />
           </div>
         </div>
         <div className="form-group row px-4">
@@ -98,7 +84,7 @@ class NewEntryModal extends Component {
           </div>
         </div>
       </form>
-    )
+    );
   }
 }
 

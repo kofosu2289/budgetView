@@ -1,0 +1,27 @@
+.rundown h4 {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.rundown h4:after {
+  content: "";
+  display: block;
+  width: 3em;
+  max-width:70%;
+  border-bottom: 0.1em solid rgb(250, 77, 65);
+  margin: 13px auto;
+}
+.rundown-income h6,
+.rundown-spending h6,
+.rundown-leftover h6 {
+  color: rgb(177, 177, 177);
+}
+#total-income,
+#total-expenses,
+#amount-left {
+  font-weight: 600;
+}
+#total-income {
+  color: rgb(114, 114, 114)
+}

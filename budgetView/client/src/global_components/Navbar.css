@@ -1,5 +1,5 @@
 nav {
-  background-color: rgb(250, 77, 65);
+  background-color: #ffc400;
   color: #F7F9FB;
 }
 nav .navbar-brand {
@@ -21,11 +21,9 @@ nav .btn {
   border-radius: 10px;
   border: 1px solid 007bff
 }
-
 .logout, .login {
   width: 4em;
 }
-
 .login {
   text-align: center
 }

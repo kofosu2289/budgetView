@@ -1,35 +1,29 @@
 import React, { Component } from "react";
 import "./NewExpenseModal.css";
 import axios from "axios";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class NewExpenseModal extends Component {
-
-
   submitNewCategory = event => {
-    event.preventDefault();
+      event.preventDefault();
+        const category = {
+          name: event.target.categoryName.value,
+          board_type: 'expense',
+          goal: event.target.maxGoal.value,
+          current_total: 0,
+          user_id: Number(localStorage.getItem('currUser_id')),
+      };
 
-    const category = {
-      name: event.target.categoryName.value,
-      board_type: 'expense',
-      goal: event.target.maxGoal.value,
-      current_total: 0,
-      user_id: localStorage.getItem('currUser_id'),
-    };
-
-    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
-      .then(res => {
-        this.props.update()
-        this.props.close()
-      })
-
-
-  }
+      axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+        .then(res => {
+          this.props.update()
+          this.props.close()
+        })
+    }
 
 
   render() {
-    const { component: Component, ...props } = this.props
-    console.log('PROPS: ', this.props)
+    const { component: Component, ...props } = this.props;
     return (
       <form onSubmit={this.submitNewCategory}>
         <h4 className="py-4">Add New Expense Category:</h4>
@@ -51,7 +45,7 @@ class NewExpenseModal extends Component {
             Select icon:
           </label>
           <div className="col-sm-9">
-            <select className="form-control" id="exampleFormControlSelect1">
+            <select className="form-control" id="category-icon">
               <option>Map</option>
               <option>Garbage Bin</option>
               <option>Train</option>
@@ -75,13 +69,13 @@ class NewExpenseModal extends Component {
         </div>
         <div className="form-group row px-4">
           <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary px-4">
+            <button type="submit" className="btn btn-outline-danger px-4">
               Add
             </button>
           </div>
         </div>
       </form>
-    )
+    );
   }
 }
 

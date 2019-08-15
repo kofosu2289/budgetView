@@ -6,19 +6,12 @@ module Api::V1
 
     def create
       @entry = Entry.create(entry_params)
-      @category = Category.find(@entry.category_id)
-      @entries = Entry.where(category_id: @category.id)
-      newTotal = @entry.amount + @category.current_total;
-      @category.update(current_total: newTotal)
-    end
-
-    def index
-      @entry = Category.all
-      render json: @entry
+      updateCategoryTotal(@entry.amount, @entry.category_id)
     end
 
     def destroy
       @entry = Entry.find(params[:id])
+      updateCategoryTotal(-@entry.amount, @entry.category_id)
       @entry.destroy
     end
 
@@ -37,6 +30,12 @@ module Api::V1
         :description,
         :date,
       )
+    end
+
+    def updateCategoryTotal(entry_amount, category_id)
+      @category = Category.find(category_id)
+      newTotal = @category.current_total + entry_amount;
+      @category.update(current_total: newTotal)
     end
 
   end

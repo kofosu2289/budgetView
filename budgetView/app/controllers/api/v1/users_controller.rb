@@ -2,11 +2,10 @@ module Api::V1
 
   class UsersController < ApplicationController
 
-    skip_before_action :authenticate, :raise => false
+    skip_before_action :authenticate
 
     def create
       user = User.new(user_params)
-      puts user.inspect
       if user.save
         render json: {
           status: 201,

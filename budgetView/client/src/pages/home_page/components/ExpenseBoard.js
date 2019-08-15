@@ -28,24 +28,12 @@ const makeCardStack = (cards, update) => {
                   <BarGraphs card={card} />
                 </div>
                 <div className="col-md-2 my-auto">
-                  <Popup
-                    trigger={
-                      <button
-                        type="button"
-                        className="btn btn-outline-danger quick-entry-btn"
-                      >
-                        + Expense Entry
-                      </button>
-                    }
-                    modal
-                    closeOnDocumentClick
-                  >
+                  <Popup trigger={
+                    <button type="button" className="btn btn-outline-danger quick-entry-btn">
+                      + Expense Entry
+                    </button> } modal closeOnDocumentClick>
                     {close => (
-                      <NewEntryModal
-                        id={card.id}
-                        update={update}
-                        close={close.bind(this)}
-                      />
+                      <NewEntryModal id={card.id} update={update} close={close.bind(this)}/>
                     )}
                   </Popup>
                 </div>
@@ -66,18 +54,10 @@ class ExpenseBoard extends Component {
         <div id="expense-card-container">
           {makeCardStack(props.categories, props.update)}
         </div>
-        <Popup
-          trigger={
-            <button
-              type="button"
-              className="btn btn-outline-danger category-btn"
-            >
+        <Popup trigger={
+            <button type="button" className="btn btn-outline-danger category-btn">
               Add Category
-            </button>
-          }
-          modal
-          closeOnDocumentClick
-        >
+            </button>} modal closeOnDocumentClick>
           {close => (
             <NewExpenseModal update={props.update} close={close.bind(this)} />
           )}

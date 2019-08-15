@@ -2,7 +2,7 @@ module Api::V1
 
   class SessionsController < ApplicationController
 
-    skip_before_action :authenticate, :raise=> false
+    skip_before_action :authenticate
 
     def new
     end
