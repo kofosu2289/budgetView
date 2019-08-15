@@ -12,8 +12,8 @@ class HomePage extends Component {
 
   const { component: Component, ...props } = this.props
 
-    if (!localStorage.getItem('jwtToken')) {
-      return <Redirect to='/login' />
+  if (!localStorage.getItem('jwtToken') && !localStorage.getItem('fbToken')) {
+    return <Redirect to='/login' />
     }
 
     return (

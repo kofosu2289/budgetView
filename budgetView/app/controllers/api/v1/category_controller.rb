@@ -2,8 +2,11 @@ module Api::V1
 
   class CategoryController < ApplicationController
 
+    skip_before_action :authenticate, :raise => false
+    
     def index
       @categories = Category.all
+      @categories = @categories.order(id: :desc).all
       render json: @categories
     end
 
@@ -31,18 +34,17 @@ module Api::V1
 
     def destroy
       @category = Category.find(params[:id])
-      @category.destroy
 
-      redirect_to '/'
+      @category.destroy
     end
 
-   
+
 
     private
 
     def category_params
       params.require(:category).permit(
-    
+
         :name,
         :user_id,
         :board_type,
