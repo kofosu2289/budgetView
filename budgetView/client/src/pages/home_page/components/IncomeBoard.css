@@ -1,5 +1,7 @@
 .income-board {
   background-color: #fdb44b;
+  max-height: 60%;
+  overflow-y: scroll;
 }
 .income-board h4 {
   font-weight: 600;

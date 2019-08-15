@@ -25,7 +25,7 @@ class Rundown extends Component {
     const amount_left = total_income - total_expenses;
 
     return <div>
-        <div className="text-center">
+        <div className="rundown text-center">
           <p>Total Income: {total_income}</p>
           <p>Total Expenses: {total_expenses}</p>
           <p>Income Remaining:{amount_left}</p>

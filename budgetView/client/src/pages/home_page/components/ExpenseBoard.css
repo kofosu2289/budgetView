@@ -1,11 +1,12 @@
 .expense-board {
   background-color: #fdb44b;
+  max-height: 38em;
+  overflow-y: scroll;
 }
 .expense-board h4 {
   font-weight: 600;
   font-size: 22px;
 }
-
 .expense-board .card-body h5 {
   font-size: 15px;
 }
