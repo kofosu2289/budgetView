@@ -12,6 +12,11 @@ module Api::V1
       @category.update(current_total: newTotal)
     end
 
+    def index
+      @entry = Category.all
+      render json: @entry
+    end
+
     def destroy
       @entry = Entry.find(params[:id])
       @entry.destroy

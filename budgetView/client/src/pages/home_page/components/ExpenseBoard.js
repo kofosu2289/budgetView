@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
 import { NavLink } from 'react-router-dom'
+import BarGraphs from "./BarGraphs.js"
 
 const makeCardStack = (cards) => {
   const allCards = cards.map(card => {
@@ -17,7 +18,8 @@ const makeCardStack = (cards) => {
                       <div className="card-body">
                         <FontAwesomeIcon icon="home" className="icons pb-2" />
                         <h5 className="card-title">{card['name']}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">${card['current_total']}</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">${card['goal']}</h6>
+                        <BarGraphs data_needed={card}/>
                       </div>
                     </div>
                   </NavLink>

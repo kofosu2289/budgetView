@@ -141,7 +141,7 @@ class CategoryContainer extends Component {
   	<div>
     <h2 align='center'>Expenses</h2>
 
-  	<Doughnut data={data} options={options} width = {200} height = {10}/>
+  	<Doughnut data={data} options={options} width = {500} height = {10}/>
 
     <br></br>
 
