@@ -5,7 +5,7 @@ module Api::V1
     skip_before_action :authenticate
 
     def index
-      @categories = Category.where(user_id: params[:user_id].to_i)
+      @categories = Category.where(user_id: params[:user_id])
       @categories = @categories.order(id: :desc).all
       render json: @categories
     end
@@ -44,7 +44,8 @@ module Api::V1
         :board_type,
         :goal,
         :current_total,
-        :icon
+        :icon,
+        :color
         )
     end
   end

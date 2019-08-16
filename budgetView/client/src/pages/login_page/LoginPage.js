@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
-import LoginForm from "./components/LoginForm"
+import { Container} from "reactstrap";
+import LoginForm from "./components/LoginForm";
 
 class LoginPage extends Component {
   render() {
@@ -8,7 +8,7 @@ class LoginPage extends Component {
       <Container className="login-body">
         <LoginForm />
       </Container>
-    )
+    );
   }
 }
 

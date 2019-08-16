@@ -8,7 +8,7 @@ import HomePage from "./pages/home_page/HomePage";
 import ExpensePage from "./pages/expense_page/ExpensePage";
 import IncomePage from "./pages/income_page/IncomePage";
 import axios from "axios";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHome,
@@ -33,20 +33,23 @@ library.add(
 );
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  update() {
+    const currUser = localStorage.getItem("currUser_id");
+    axios.get("http://localhost:3001/api/v1/category.json", {
+            params: { user_id: currUser }
+          })
+          .then(response => {
+            this.setState({
+              categories: response.data
+            });
+          })
+          .catch(error => console.log(error));
   }
 
-  update() {
-    axios
-      .get("http://localhost:3001/api/v1/category.json")
-      .then(response => {
-        this.setState({
-          categories: response.data
-        });
-        console.log(response);
-      })
-      .catch(error => console.log(error));
+  clearState() {
+    this.setState({
+      categories: []
+    })
   }
 
   componentDidMount() {
@@ -61,7 +64,7 @@ class App extends Component {
           {this.state &&
             this.state.categories && (
               <div>
-                <Navbar />
+                <Navbar clearState = {this.clearState.bind(this)}/>
                 <Switch>
                   <Route exact path="/" component={LandingPage} />
                   <Route path="/signup" component={SignupPage} />

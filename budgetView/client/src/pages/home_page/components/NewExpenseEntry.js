@@ -16,8 +16,6 @@ class NewExpenseEntry extends Component {
           category_id: this.props.category.id,
       };
 
-      console.log(entry)
-
       axios.post(`http://localhost:3001/api/v1/entry.json`, { entry })
         .then(res => {
           this.props.update()

@@ -3,45 +3,38 @@ import "./NewExpenseModal.css";
 import axios from "axios";
 
 class NewExpenseModal extends Component {
+  generate_color = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
 
   submitNewCategory = event => {
 
       event.preventDefault();
-
-     
         const category = {
           name: event.target.categoryName.value,
           board_type: 'expense',
           icon: event.target.exampleFormControlSelect1.value,
-         
+          color: this.generate_color(),
           goal: event.target.maxGoal.value,
           current_total: 0,
-          user_id: Number(localStorage.getItem('currUser_id')),
+          user_id: localStorage.getItem('currUser_id'),
       };
-
 
       axios.post(`http://localhost:3001/api/v1/category.json`, { category })
         .then(res => {
-          
           this.props.update()
           this.props.close()
-          
-
         })
     }
 
 
-    
-
-
   render() {
-
-
-
-
-
-
-    const { component: Component, ...props } = this.props
+    const { component: Component, ...props } = this.props;
 
     return (
       <form onSubmit={this.submitNewCategory}>

@@ -4,10 +4,10 @@ import { Progress } from "reactstrap";
 
 class SpendingSummary extends Component {
   render() {
-    const percentage =
+    let percentage =
       (this.props.category.current_total / this.props.category.goal) * 100;
-    const percent_string = percentage.toString();
-    const current_total = this.props.category.current_total;
+    let percent_string = percentage.toString();
+    let current_total = this.props.category.current_total;
 
     if (percentage > 100) {
       return (

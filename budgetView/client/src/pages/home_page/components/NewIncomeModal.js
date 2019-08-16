@@ -10,15 +10,14 @@ class NewIncomeModal extends Component {
       board_type: "income",
       goal: 0,
       current_total: 0,
-      user_id: Number(localStorage.getItem('currUser_id')),
+      user_id: localStorage.getItem('currUser_id'),
     };
 
-    axios.post(`http://localhoat:3001/api/v1/category.json`, { category })
-      .then(res => {
-        this.props.update()
-        this.props.close()
-      })
-  }
+    axios.post(`http://localhost:3001/api/v1/category.json`, { category }).then(res => {
+      this.props.update();
+      this.props.close();
+    });
+  };
 
   render() {
     const { component: Component, ...props } = this.props;

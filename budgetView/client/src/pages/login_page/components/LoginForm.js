@@ -31,7 +31,7 @@ class LoginForm extends Component {
         const token = res.data.jwt;
         const id = res.data.id;
         localStorage.setItem('jwtToken', token);
-        localStorage.setItem('currUser_id', id);
+        localStorage.setItem('currUser_id', id.toString());
         this.setState({ redirect: true, error: false })
       })
       .catch(error => {
@@ -40,10 +40,11 @@ class LoginForm extends Component {
   };
 
   render() {
+    let error
     if (this.state.redirect) {
       return <Redirect to="/home" />;
     } else if (this.state.error) {
-      var error = (
+      error = (
         <div className="error-message">
           Incorrect Credentials. Please try again.
         </div>

@@ -10,8 +10,6 @@ import { Redirect } from "react-router-dom";
 import "./ExpensePage.css";
 
 class ExpensePage extends Component {
-
-
   update() {
     const id = this.props.match.params["id"];
     axios
@@ -37,32 +35,66 @@ class ExpensePage extends Component {
     }
     return (
       <Container>
-        { this.state && this.state.entries &&
-          <div className="expense-page">
-            <h1 className="text-center">{this.state.category.name}</h1>
-            <h4 className="text-center mb-4" id="expense-budgeted">Budgeted: ${this.state.category.goal}</h4>
-            <BarGraphs card={this.state.category}/>
-            <div className="mt-4 mb-2">
-              <Popup trigger={
-                <button type="button" className="btn btn-outline-danger mr-3 px-4">
-                Add Entry
-                </button>} modal closeOnDocumentClick>
-                {close => (
-                  <NewEntryModal update={this.update.bind(this)} id={this.state.category.id} updateHome={this.props.update} close={close.bind(this)}/>
-                )}
-              </Popup>
-              <Popup trigger={
-                <button type="button" className="btn btn-outline-danger px-4">
-                Edit Budget Amount
-                </button>} modal closeOnDocumentClick>
-                {close => (
-                  <BudgetEditor update={this.update.bind(this)} id={this.state.category.id} updateHome={this.props.update} close={close.bind(this)}/>
-                )}
-              </Popup>
+        {this.state &&
+          this.state.entries && (
+            <div className="expense-page">
+              <h1 className="text-center">{this.state.category.name}</h1>
+              <h4 className="text-center mb-4" id="expense-budgeted">
+                Budgeted - ${this.state.category.goal}
+              </h4>
+              <BarGraphs card={this.state.category} />
+              <div className="mt-4 mb-2">
+                <Popup
+                  trigger={
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger mr-3 px-4"
+                    >
+                      Add Entry
+                    </button>
+                  }
+                  modal
+                  closeOnDocumentClick
+                >
+                  {close => (
+                    <NewEntryModal
+                      update={this.update.bind(this)}
+                      id={this.state.category.id}
+                      updateHome={this.props.update}
+                      close={close.bind(this)}
+                    />
+                  )}
+                </Popup>
+                <Popup
+                  trigger={
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger px-4"
+                    >
+                      Edit Budget Amount
+                    </button>
+                  }
+                  modal
+                  closeOnDocumentClick
+                >
+                  {close => (
+                    <BudgetEditor
+                      update={this.update.bind(this)}
+                      id={this.state.category.id}
+                      updateHome={this.props.update}
+                      close={close.bind(this)}
+                    />
+                  )}
+                </Popup>
+              </div>
+              <ExpenseTable
+                entries={this.state.entries}
+                id={this.state.category.id}
+                update={this.update.bind(this)}
+                updateHome={this.props.update}
+              />
             </div>
-            <ExpenseTable entries={this.state.entries} id={this.state.category.id} update={this.update.bind(this)} updateHome={this.props.update}/>
-          </div>
-        }
+          )}
       </Container>
     );
   }

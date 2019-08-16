@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
-import Content from "./components/Content"
+import { Container } from "reactstrap";
+import Content from "./components/Content";
 
 
 class LandingPage extends Component {
@@ -10,7 +10,7 @@ class LandingPage extends Component {
         <Content />
         
       </Container>
-    )
+    );
   }
 }
 

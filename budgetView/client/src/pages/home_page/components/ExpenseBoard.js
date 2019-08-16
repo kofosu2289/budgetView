@@ -1,41 +1,29 @@
 import React, { Component } from "react";
 import "./ExpenseBoard.css";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faMap, faTrain, faPhone, faFood, faUtensils} from '@fortawesome/free-solid-svg-icons'
- 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCheckSquare,
+  faCoffee,
+  faMap,
+  faTrain,
+  faPhone,
+  faFood,
+  faUtensils
+} from "@fortawesome/free-solid-svg-icons";
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
 import { NavLink } from "react-router-dom";
 import BarGraphs from "./BarGraphs.js";
 import NewEntryModal from "../../expense_page/components/NewEntryModal";
 
-
-
-
-
-
-library.add(fab, faCheckSquare, faCoffee, faMap, faTrain, faPhone, faUtensils)
-
-
-
-
-
+library.add(fab, faCheckSquare, faCoffee, faMap, faTrain, faPhone, faUtensils);
 
 const makeCardStack = (cards, update) => {
-  const card_count = 0;
   const allCards = cards.map(card => {
-  card_count++;
-
-    
-  const icon_living = `${card["icon"]}`;
-    
-
-
-  
+    let icon_living = `${card["icon"]}`;
     switch (card["board_type"]) {
-
       case "expense":
         return (
           <div className="card my-2 mx-1">
@@ -43,10 +31,10 @@ const makeCardStack = (cards, update) => {
               <div className="row">
                 <div className="col-md-2">
                   <NavLink to={`/expense/${card["id"]}`}>
-                    <FontAwesomeIcon icon={icon_living}/>
+                    <FontAwesomeIcon icon={icon_living} />
                     <h5 className="card-title">{card["name"]}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">
-                      Budgeted: ${card["goal"]}
+                      Budgeted - ${card["goal"]}
                     </h6>
                   </NavLink>
                 </div>
@@ -55,11 +43,17 @@ const makeCardStack = (cards, update) => {
                 </div>
                 <div className="col-md-2 my-auto">
                   <Popup trigger={
-                    <button type="button" className="btn btn-outline-danger quick-entry-btn">
-                      + Expense Entry
-                    </button> } modal closeOnDocumentClick>
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger quick-entry-btn">
+                        + Expense Entry
+                      </button>
+                    } modal closeOnDocumentClick >
                     {close => (
-                      <NewEntryModal id={card.id} update={update} close={close.bind(this)}/>
+                      <NewEntryModal
+                        id={card.id}
+                        update={update}
+                        close={close.bind(this)} />
                     )}
                   </Popup>
                 </div>
@@ -67,20 +61,12 @@ const makeCardStack = (cards, update) => {
             </div>
           </div>
         );
-       
-
     }
-
   });
   return allCards;
 };
 
 class ExpenseBoard extends Component {
-
-  
-
-
-
   render() {
     const { component: Component, ...props } = this.props;
     return (
@@ -89,11 +75,14 @@ class ExpenseBoard extends Component {
           {makeCardStack(props.categories, props.update)}
         </div>
         <Popup trigger={
-            <button type="button" className="btn btn-outline-danger category-btn">
+            <button
+              type="button"
+              className="btn btn-outline-danger category-btn" >
               Add Category
-            </button>} modal closeOnDocumentClick>
+            </button>
+          } modal closeOnDocumentClick >
           {close => (
-            <NewExpenseModal   categories={props.categories} update={props.update} close={close.bind(this)} />
+            <NewExpenseModal update={props.update} close={close.bind(this)} />
           )}
         </Popup>
       </div>

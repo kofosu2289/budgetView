@@ -6,12 +6,13 @@ class Navbar extends Component {
 
   logout = event => {
     localStorage.removeItem("jwtToken");
+    this.props.clearState()
   };
 
   render() {
-    var user = localStorage.getItem("jwtToken");
-    let loginLogout;
+    const user = localStorage.getItem("jwtToken");
     
+    let loginLogout;
     let navbarBrand;
     let signup;
     if (user) {

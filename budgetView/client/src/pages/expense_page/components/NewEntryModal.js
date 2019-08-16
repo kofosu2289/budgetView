@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./NewEntryModal.css";
 import axios from "axios";
 
-
 class NewEntryModal extends Component {
   submitNewCategory = event => {
     event.preventDefault();
@@ -27,7 +26,10 @@ class NewEntryModal extends Component {
   render() {
     const { component: Component, ...props } = this.props;
     return (
-      <form className="entry-form text-center" onSubmit={this.submitNewCategory}>
+      <form
+        className="entry-form text-center"
+        onSubmit={this.submitNewCategory}
+      >
         <h4 className="py-4">Add New Entry:</h4>
         <div className="form-group row px-4">
           <label htmlFor="entryName" className="col-sm-3 col-form-label">

@@ -4,8 +4,8 @@ import NumberFormat from "react-number-format";
 
 class Rundown extends Component {
   render() {
-    let total_income = 0.0;
-    let total_expenses = 0.0;
+    let total_income = 0.00;
+    let total_expenses = 0.00;
 
     this.props.categories.forEach(function(category) {
       if (category.board_type === "income") {
@@ -14,7 +14,7 @@ class Rundown extends Component {
         total_expenses += parseFloat(category.current_total);
       }
     });
-    
+
     const amount_left = (total_income - total_expenses).toFixed(2);
     let color = "rgb(139, 179, 88)";
     if (amount_left < 0) {
@@ -29,7 +29,12 @@ class Rundown extends Component {
             <h6>Income</h6>
           </div>
           <div className="ml-auto bd-highlight" id="total-income">
-            <NumberFormat value={`${total_income}`} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+            <NumberFormat
+              value={`${total_income}`}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$"}
+            />
           </div>
         </div>
         <div className="rundown-spending d-flex bd-highlight mx-5">
@@ -37,7 +42,12 @@ class Rundown extends Component {
             <h6>Spending</h6>
           </div>
           <div className="ml-auto bd-highlight" id="total-expenses">
-            <NumberFormat value={`${total_expenses}`} displayType={'text'} thousandSeparator={true} prefix={'-$'} />            
+            <NumberFormat
+              value={`${total_expenses}`}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"-$"}
+            />
           </div>
         </div>
         <hr width="80%" />
@@ -47,7 +57,12 @@ class Rundown extends Component {
           </div>
           <div className="ml-auto bd-highlight">
             <p id="amount-left" style={{ color: color }}>
-              <NumberFormat value={`${amount_left}`} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+              <NumberFormat
+                value={`${amount_left}`}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+              />
             </p>
           </div>
         </div>
