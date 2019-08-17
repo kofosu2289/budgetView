@@ -14,11 +14,10 @@ class Notification extends Component {
     let overBudget = [];
 
     this.props.categories.forEach((category) => {
-      if (
-        JSON.parse(category.current_total) >
-        JSON.parse(category.goal)
-      ) {
-        overBudget.push(category);
+      if (category.board_type === 'expense'){
+        if (JSON.parse(category.current_total) > JSON.parse(category.goal)) {
+          overBudget.push(category);
+        }
       }
 
     })

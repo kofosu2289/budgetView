@@ -30,7 +30,7 @@ class Rundown extends Component {
           </div>
           <div className="ml-auto bd-highlight" id="total-income">
             <NumberFormat
-              value={`${total_income}`}
+              value={`${total_income.toPrecision(total_income.toString().length )}`}
               displayType={"text"}
               thousandSeparator={true}
               prefix={"$"}
@@ -43,7 +43,7 @@ class Rundown extends Component {
           </div>
           <div className="ml-auto bd-highlight" id="total-expenses">
             <NumberFormat
-              value={`${total_expenses}`}
+              value={`${total_expenses.toPrecision(total_expenses.toString().length )}`}
               displayType={"text"}
               thousandSeparator={true}
               prefix={"-$"}
