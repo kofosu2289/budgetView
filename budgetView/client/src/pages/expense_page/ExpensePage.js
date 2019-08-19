@@ -44,18 +44,12 @@ class ExpensePage extends Component {
               </h4>
               <BarGraphs card={this.state.category} />
               <div className="mt-4 mb-2" id="expense-buttons">
-                <Popup
-                  trigger={
+                <Popup trigger={
                     <button
                       type="button"
-                      className="btn btn-outline-primary mr-3 px-4"
-                    >
+                      className="btn btn-outline-primary px-4" >
                       Add Entry
-                    </button>
-                  }
-                  modal
-                  closeOnDocumentClick
-                >
+                    </button> } modal closeOnDocumentClick   >
                   {close => (
                     <NewEntryModal
                       update={this.update.bind(this)}
@@ -65,27 +59,22 @@ class ExpensePage extends Component {
                     />
                   )}
                 </Popup>
-                <Popup
-                  trigger={
+                <Popup trigger={
                     <button
                       type="button"
-                      className="btn btn-outline-danger px-4"
-                    >
+                      className="btn btn-outline-primary px-4" >
                       Edit Budget Amount
-                    </button>
-                  }
-                  modal
-                  closeOnDocumentClick
-                >
+                    </button> } modal closeOnDocumentClick >
                   {close => (
                     <BudgetEditor
                       update={this.update.bind(this)}
-                      id={this.state.category.id}
+                      category={this.state.category}
                       updateHome={this.props.update}
                       close={close.bind(this)}
                     />
                   )}
                 </Popup>
+                <a href="/home" className="btn btn-outline-primary px-4" id="income-go-home">Go Home</a>
               </div>
               <ExpenseTable
                 entries={this.state.entries}

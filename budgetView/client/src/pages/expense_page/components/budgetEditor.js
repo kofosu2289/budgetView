@@ -5,13 +5,10 @@ import "./budgetEditor.css";
 class BudgetEditor extends Component {
   editCategory = event => {
     event.preventDefault();
+    const category = this.props.category
     const newGoal = event.target.maxGoal.value;
-    const params = {
-      newGoal: event.target.maxGoal.value,
-      category_id: this.props.id
-    };
 
-      axios.put(`http://localhost:3001/api/v1/category/${this.props.id}.json`, { newGoal })
+      axios.put(`http://localhost:3001/api/v1/category/${category.id}.json`, { newGoal })
            .then(res => {
               this.props.update();
               this.props.close();
@@ -40,7 +37,7 @@ class BudgetEditor extends Component {
               type="text"
               className="form-control"
               id="maxGoal"
-              placeholder="i.e. $75.00"
+              placeholder={this.props.category.goal}
             />
           </div>
         </div>
