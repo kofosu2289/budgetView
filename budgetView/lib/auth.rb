@@ -7,8 +7,8 @@ class Auth
   def self.issue(payload)
 
     JWT.encode(
-      payload,
-      auth_secret,
+      payload.to_s,
+      auth_secret.to_s,
       ALGORITHM)
 
   end
