@@ -13,7 +13,7 @@ module Api::V1
     def show
       @category = Category.find params[:id]
       @entries = Entry.where(category_id: @category.id)
-      @entries = @entries.order(id: :desc).all
+      @entries = @entries.order(params[:orderBy]).all
       render json: [@category, @entries]
     end
 
