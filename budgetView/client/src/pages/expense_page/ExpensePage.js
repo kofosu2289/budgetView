@@ -43,12 +43,12 @@ class ExpensePage extends Component {
                 Budgeted - ${this.state.category.goal}
               </h4>
               <BarGraphs card={this.state.category} />
-              <div className="mt-4 mb-2">
+              <div className="mt-4 mb-2" id="expense-buttons">
                 <Popup
                   trigger={
                     <button
                       type="button"
-                      className="btn btn-outline-danger mr-3 px-4"
+                      className="btn btn-outline-primary mr-3 px-4"
                     >
                       Add Entry
                     </button>

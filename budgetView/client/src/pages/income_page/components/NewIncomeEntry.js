@@ -82,7 +82,7 @@ class NewIncomeEntry extends Component {
         </div>
         <div className="form-group row px-4">
           <div className="col-sm-12">
-            <button type="submit" className="btn btn-outline-danger px-4">
+            <button type="submit" className="btn btn-outline-primary px-4">
               Add
             </button>
           </div>

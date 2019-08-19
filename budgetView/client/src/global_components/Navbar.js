@@ -18,7 +18,7 @@ class Navbar extends Component {
     if (user) {
       loginLogout = (
         <NavLink to="/">
-          <div className="navbar-right-div logout" onClick={this.logout}>
+          <div className="navbar-right-div btn btn-outline-warning logout" onClick={this.logout}>
             Logout
           </div>
         </NavLink>

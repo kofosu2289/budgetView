@@ -1,29 +1,17 @@
-nav {
-  background-color: #ffc400;
-  color: #F7F9FB;
+.navbar {
+  background-color: #fff6dd;
+  padding-left: 20px;
+  padding-right: 10px;
 }
+
 nav .navbar-brand {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  color: #F7F9FB;
+  color: #ffc107;
+  font-size: 30px;
 }
+
 nav .btn {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-}
-.navbar-right-div {
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: white;
-  margin-left: 10px;
-  border-radius: 10px;
-  border: 1px solid 007bff
-}
-.logout, .login {
-  width: 4em;
-}
-.login {
-  text-align: center
 }

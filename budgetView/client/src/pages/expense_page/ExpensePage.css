@@ -4,7 +4,19 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
 #expense-budgeted {
   font-weight: 400;
   font-size: 15px;
+}
+
+#expense-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.login {
+  margin-left: 10px
 }

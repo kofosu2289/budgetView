@@ -14,14 +14,14 @@
   display: block;
   width: 3em;
   max-width:70%;
-  border-bottom: 0.1em solid rgb(250, 77, 65);
+  border-bottom: 0.1em solid black;
   margin: 10px auto 0;
 }
 .income-board .card {
   width: 11rem;
 }
 .income-board .card-title {
-  color: rgb(250, 77, 65);
+  color: black;
 }
 .income-board .card-body h5 {
   font-size: 15px;
