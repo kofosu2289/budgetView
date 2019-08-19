@@ -33,7 +33,7 @@ class NewIncomeModal extends Component {
               type="text"
               className="form-control"
               id="categoryName"
-              placeholder="i.e. Job 1"
+              placeholder="Income Source"
             />
           </div>
         </div>

@@ -13,7 +13,6 @@ class HomePage extends Component {
 
 
   componentDidMount() {
-    console.log("Welcome!");
     this.props.update();
   }
 

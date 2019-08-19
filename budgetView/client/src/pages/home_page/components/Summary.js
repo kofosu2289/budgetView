@@ -5,8 +5,6 @@ import { Doughnut } from "react-chartjs-2";
 class CategoryContainer extends Component {
 
   render() {
-
-    console.log(this.props.categories,'we out here here')
     let reverse_labels;
     let reverse_dataPoints;
     let example_graph_message;
