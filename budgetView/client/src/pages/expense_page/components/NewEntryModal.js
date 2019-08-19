@@ -14,7 +14,7 @@ class NewEntryModal extends Component {
       date: event.target.date.value
     };
 
-    axios.post(`http://locahost:3001/api/v1/entry.json`, { entry }).then(res => {
+    axios.post(`https://desolate-badlands-77534.herokuapp.com/api/v1/entry.json`, { entry }).then(res => {
       this.props.update();
       this.props.close();
       if (this.props.updateHome) {
