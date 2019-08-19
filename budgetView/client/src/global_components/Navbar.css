@@ -15,9 +15,11 @@ nav .navbar-brand {
 
 nav .btn {
   font-family: "Open Sans", sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #4056A1;
   border-radius: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 nav .btn:hover,

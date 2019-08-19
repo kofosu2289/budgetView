@@ -40,24 +40,23 @@ class LoginForm extends Component {
   };
 
   render() {
-    let error
     if (this.state.redirect) {
       return <Redirect to="/home" />;
     } else if (this.state.error) {
-      error = (
-        <div className="error-message">
+      var error = (
+        <div className="error-message mb-2">
           Incorrect Credentials. Please try again.
         </div>
       )
     }
     return (
-      <section className="login-existing-user">
-        <header className="login-page-header">
+      <section className="login-existing-user mt-5">
+        <header className="login-page-header text-center my-3">
           <h1>Login</h1>
         </header>
         <div className="row">
           <div className="col-sm-6 col-sm-offset-1">
-            <form onSubmit={this.onSave}>
+            <form className="shadow p-3 mb-4 bg-white" onSubmit={this.onSave}>
               <div className="form-group input">
                 Email{" "}
                 <input
@@ -82,14 +81,14 @@ class LoginForm extends Component {
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group submit">
+              <div className="form-group submit text-center">
                 <input type="submit" className="btn btn-primary" />
               </div>
             </form>
           </div>
         </div>
         {error}
-        <div className="login-message">
+        <div className="login-message text-center">
           <p>
             Dont have an account? Click <a href="/signup">here</a> to sign up.
           </p>

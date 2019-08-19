@@ -1,5 +1,5 @@
 .login-existing-user {
-  width: 400px;
+  width: 560px;
   background: lightblue;
   padding: 15px;
   margin: auto;
@@ -14,17 +14,6 @@
   width: 300px;
   padding-top: 10px;
   margin-bottom: 0px;
-}
-
-.login-page-header {
-  margin-left: 28px;
-  margin-right: 28px;
-  border-bottom: 1px solid black;
-}
-
-.login-message {
-  text-align: center;
-  padding-top: 20px;
 }
 
 .error-message {

@@ -121,7 +121,7 @@ class SignupForm extends Component {
                 />
               </div>
               <div className="form-group submit text-center">
-                <input type="submit" className="btn btn-primary" />
+                <input type="submit" className="btn btn-custom btn-primary" />
               </div>
             </form>
           </div>
