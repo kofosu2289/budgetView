@@ -1,3 +1,4 @@
+require "#{Rails.root}/lib/auth.rb"
 module Api::V1
 
   class ApplicationController < ActionController::API

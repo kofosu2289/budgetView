@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/auth.rb"
+
 module Api::V1
 
   class SessionsController < ApplicationController
