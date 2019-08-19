@@ -7,6 +7,7 @@ import LoginPage from "./pages/login_page/LoginPage";
 import HomePage from "./pages/home_page/HomePage";
 import ExpensePage from "./pages/expense_page/ExpensePage";
 import IncomePage from "./pages/income_page/IncomePage";
+import Footer from "./global_components/Footer";
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -100,6 +101,7 @@ class App extends Component {
                   )}
                 />
               </Switch>
+              <Footer />
             </div>
           )}
       </BrowserRouter>

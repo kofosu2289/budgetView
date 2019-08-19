@@ -1,6 +1,16 @@
 #left-div {
   box-shadow: -60px 0px 100px -90px #000000, 55px 0px 75px -99px #000000;
+  background: linear-gradient(to right, #f4f6f9, #f9fafc);
 }
 #right-div {
  box-shadow: 60px 0px 100px -90px #000000;
+ background-color: #f9fafc;
+}
+.btn-outline-primary {
+  color: #4056A1;
+  border-color: #4056A1;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+  background-color: #4056A1;
 }
