@@ -83,8 +83,7 @@ class ExpenseBoard extends Component {
         <Popup trigger={
             <button
               type="button"
-              className="btn btn-outline-primary category-btn"
-            >
+              className="btn btn-outline-primary category-btn mt-3"            >
               Add Category
             </button>
           } modal closeOnDocumentClick >
