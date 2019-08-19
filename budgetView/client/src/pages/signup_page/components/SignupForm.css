@@ -1,8 +1,13 @@
 .signup-new-user {
-  width: 600px;
   background: lightblue;
   padding: 15px;
   margin: auto;
+  color: #374785;
+  position: absolute;
+  top: 5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .signup-new-user .col-sm-6 {

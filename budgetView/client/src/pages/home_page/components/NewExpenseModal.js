@@ -3,60 +3,57 @@ import "./NewExpenseModal.css";
 import axios from "axios";
 
 class NewExpenseModal extends Component {
-  generate_color = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
+
 
   submitNewCategory = event => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    let icon_name = ''
 
-    if (event.target.exampleFormControlSelect1.value === 'Food'){
-      icon_name = 'utensils'
+      let icon_name = ''
 
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Transportation'){
-      icon_name = 'train'
+      if (event.target.exampleFormControlSelect1.value === 'Food'){
+        icon_name = 'utensils'
 
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Home Expenses'){
-      icon_name = 'home'
-      
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Entertainment'){
-      icon_name = 'film'
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Shopping'){
-      icon_name = 'shopping-bag'
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Alcohol'){
-      icon_name = 'wine-glass'
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Vacation'){
-      icon_name = 'map'
-    }
-    else if (event.target.exampleFormControlSelect1.value === 'Other'){
-      icon_name = 'asterisk'
-    }
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Transportation'){
+        icon_name = 'train'
+
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Home Expenses'){
+        icon_name = 'home'
+        
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Entertainment'){
+        icon_name = 'film'
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Shopping'){
+        icon_name = 'shopping-bag'
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Alcohol'){
+        icon_name = 'wine-glass'
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Vacation'){
+        icon_name = 'map'
+      }
+      else if (event.target.exampleFormControlSelect1.value === 'Other'){
+        icon_name = 'asterisk'
+      }
+
+
+     
         const category = {
           name: event.target.categoryName.value,
           board_type: 'expense',
           icon: icon_name,
-          color: this.generate_color(),
           goal: event.target.maxGoal.value,
           current_total: 0,
           user_id: localStorage.getItem('currUser_id'),
       };
 
+
       axios.post(`http://localhost:3001/api/v1/category.json`, { category })
-        .then(res => {
+        .then(res => {        
           this.props.update()
           this.props.close()
         })
@@ -64,7 +61,9 @@ class NewExpenseModal extends Component {
 
 
   render() {
-    const { component: Component, ...props } = this.props;
+
+    const { component: Component, ...props } = this.props
+
 
     return (
       <form onSubmit={this.submitNewCategory}>
@@ -88,7 +87,7 @@ class NewExpenseModal extends Component {
           </label>
           <div className="col-sm-9">
             <select className="form-control" id="exampleFormControlSelect1">
-            <option>Food</option>
+              <option>Food</option>
               <option>Transportation</option>
               <option>Home Expenses</option>
               <option>Entertainment</option>
@@ -96,6 +95,8 @@ class NewExpenseModal extends Component {
               <option>Alcohol</option>
               <option>Vacation</option>
               <option>Other</option>
+
+
             </select>
           </div>
         </div>

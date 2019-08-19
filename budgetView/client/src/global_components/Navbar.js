@@ -6,12 +6,12 @@ class Navbar extends Component {
 
   logout = event => {
     localStorage.removeItem("jwtToken");
+    
     this.props.clearState()
   };
 
   render() {
-    const user = localStorage.getItem("jwtToken");
-    
+    let user = localStorage.getItem("jwtToken");
     let loginLogout;
     let navbarBrand;
     let signup;
@@ -25,7 +25,10 @@ class Navbar extends Component {
       );
       navbarBrand = (
         <NavLink to="/home">
-          <div className="navbar-brand">BudgetView</div>
+          <div className="navbar-brand">
+            <img src={require("./logo.png")} width="40" height="30" className="mr-1" />
+            BudgetView
+          </div>
         </NavLink>
       );
     } else {
@@ -41,12 +44,15 @@ class Navbar extends Component {
       );
       navbarBrand = (
         <NavLink to="/">
-          <div className="navbar-brand">BudgetView</div>
+          <div className="navbar-brand">
+            <img src={require("./logo.png")} width="40" height="30" className="mr-1"/>
+            BudgetView
+          </div>
         </NavLink>
       );
     }
     return (
-      <nav className="navbar justify-content-between mb-3 px-5">
+      <nav className="navbar justify-content-between px-5">
         {navbarBrand}
         <div className="navbar justify-content-between">
           {signup}

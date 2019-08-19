@@ -44,8 +44,8 @@ module Api::V1
         :board_type,
         :goal,
         :current_total,
-        :icon,
-        :color
+        :icon
+     
         )
     end
   end

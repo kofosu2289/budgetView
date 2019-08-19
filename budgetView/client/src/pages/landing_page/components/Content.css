@@ -1,32 +1,26 @@
 .container {
-  background: white
+  background: white;
 }
-
 .landing-content {
   padding-top: 5em;
   text-align: center;
   color: #374785;
 }
-
 .tagline {
   padding-bottom: 2em;
 }
-
 .content-message {
   padding-bottom: 0.5em;
 }
-
 .social-button {
   margin: auto;
   width: auto;
   text-align: center;
   padding-top: 2em;
 }
-
-.google-login .button{
-  background: black
+.google-login .button {
+  background: black;
 }
-
 .my-facebook-button-class {
   background: #4267b2;
   border-radius: 5px;
@@ -35,20 +29,17 @@
   text-align: center;
   width: 220px;
 }
-
 .fa-facebook {
-  margin-right: 20px
+  margin-right: 20px;
 }
-
 .google-login {
-  background: #DD4B39;
+  background: #dd4b39;
   border-radius: 5px;
   color: white;
   height: 40px;
   text-align: center;
   width: 200px;
 }
-
 .fa-google {
-  margin-right: 10px
+  margin-right: 10px;
 }

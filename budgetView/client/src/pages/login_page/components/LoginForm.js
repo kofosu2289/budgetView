@@ -26,13 +26,14 @@ class LoginForm extends Component {
   onSave = event => {
     event.preventDefault();
 
-    axios.post(`http://localhost:3001/api/v1/sessions`, { ...this.state.credentials })
+    axios
+      .post(`http://localhost:3001/api/v1/sessions`, { ...this.state.credentials })
       .then(res => {
         const token = res.data.jwt;
         const id = res.data.id;
-        localStorage.setItem('jwtToken', token);
-        localStorage.setItem('currUser_id', id.toString());
-        this.setState({ redirect: true, error: false })
+        localStorage.setItem("jwtToken", token);
+        localStorage.setItem("currUser_id", id.toString());
+        this.setState({ redirect: true, error: false });
       })
       .catch(error => {
         this.setState({ error: true });
@@ -47,45 +48,43 @@ class LoginForm extends Component {
         <div className="error-message mb-2">
           Incorrect Credentials. Please try again.
         </div>
-      )
+      );
     }
     return (
-      <section className="login-existing-user mt-5">
+      <section className="login-existing-user">
         <header className="login-page-header text-center my-3">
           <h1>Login</h1>
         </header>
-        <div className="row">
-          <div className="col-sm-6 col-sm-offset-1">
-            <form className="shadow p-3 mb-4 bg-white" onSubmit={this.onSave}>
-              <div className="form-group input">
-                Email{" "}
-                <input
-                  type="email"
-                  className="form-control"
-                  id="inputEmail3"
-                  name="email"
-                  label="email"
-                  value={this.state.credentials.email}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group input">
-                Password{" "}
-                <input
-                  type="password"
-                  className="form-control"
-                  id="inputPassword3"
-                  name="password"
-                  label="password"
-                  value={this.state.credentials.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group submit text-center">
-                <input type="submit" className="btn btn-primary" />
-              </div>
-            </form>
-          </div>
+        <div className="d-flex justify-content-center">
+          <form className="shadow p-3 mb-4 bg-white" onSubmit={this.onSave}>
+            <div className="form-group input">
+              Email{" "}
+              <input
+                type="email"
+                className="form-control"
+                id="inputEmail3"
+                name="email"
+                label="email"
+                value={this.state.credentials.email}
+                onChange={this.onChange}
+              />
+            </div>
+            <div className="form-group input">
+              Password{" "}
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword3"
+                name="password"
+                label="password"
+                value={this.state.credentials.password}
+                onChange={this.onChange}
+              />
+            </div>
+            <div className="form-group submit text-center">
+              <input type="submit" className="btn btn-primary" />
+            </div>
+          </form>
         </div>
         {error}
         <div className="login-message text-center">

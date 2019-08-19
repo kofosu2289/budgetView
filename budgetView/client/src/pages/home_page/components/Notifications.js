@@ -19,7 +19,6 @@ class Notification extends Component {
           overBudget.push(category);
         }
       }
-
     })
 
     overBudget.forEach((over) => {
@@ -29,6 +28,7 @@ class Notification extends Component {
         5000
       );
     })
+    
   };
 
   render() {
