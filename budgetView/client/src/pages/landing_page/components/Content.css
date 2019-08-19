@@ -1,6 +1,6 @@
 .landing-content {
   color: #374785;
-  position: relative;
+  position: absolute;
   top: 5rem;
   bottom: 0;
   left: 0;
@@ -12,6 +12,7 @@
 }
 
 .landing-content-text {
+  position: absolute
   top: 15rem;
   left: 5rem;
 }
