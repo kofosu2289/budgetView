@@ -1,9 +1,9 @@
 .landing-content {
   color: #374785;
   position: absolute;
-  top: 5rem;
+  top: 15rem;
   bottom: 0;
-  left: 0;
+  left: 5 rem;
   right: 0;
   background-image: url("./landing-page-bg.png");
   background-position: center;
