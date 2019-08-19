@@ -7,7 +7,7 @@
 nav .navbar-brand {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  color: #ffc107;
+  color: #4056A1;
   font-size: 30px;
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -16,11 +16,11 @@ nav .navbar-brand {
 nav .btn {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  color: #ffc107;
+  color: #4056A1;
   border-radius: 0;
 }
 
 nav .btn:hover,
 nav .btn:active {
-  border-bottom: 3px solid #ffc107;
+  border-bottom: 3px solid #4056A1;
 }

@@ -43,24 +43,23 @@ class SignupForm extends Component {
   };
 
   render() {
-    let error
     if (this.state.redirect && !this.state.error) {
       return <Redirect to="/login" />;
     } else if (this.state.error) {
-      error = (
+      var error = (
         <div className="error-message">
           Missing credentials. Please fill out all fields before submitting.
         </div>
       );
     }
     return (
-      <section className="signup-new-user">
-        <header className="signup-page-header">
-          <h1>Signup</h1>
+      <section className="signup-new-user mt-5">
+        <header className="signup-page-header text-center my-3">
+          <h1>Sign Up</h1>
         </header>
         <div className="row">
           <div className="col-sm-6 col-sm-offset-1">
-            <form onSubmit={this.onSave}>
+            <form className="shadow p-3 mb-4 bg-white" onSubmit={this.onSave}>
               <div className="form-group input">
                 First Name{" "}
                 <input
@@ -121,18 +120,18 @@ class SignupForm extends Component {
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group submit">
+              <div className="form-group submit text-center">
                 <input type="submit" className="btn btn-primary" />
               </div>
             </form>
           </div>
-        </div>
-        {error}
-        <div className="signup-message">
-          <p>
-            Already have an account? Click <a href="/login">here</a> to sign in.
-          </p>
-        </div>
+          </div>
+          {error}
+          <div className="signup-message text-center">
+            <p>
+              Already have an account? Click <a href="/login">here</a> to sign in.
+            </p>
+          </div>
       </section>
     );
   }
