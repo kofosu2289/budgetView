@@ -18,7 +18,7 @@ class Navbar extends Component {
     if (user) {
       loginLogout = (
         <NavLink to="/">
-          <div className="navbar-right-div btn btn-outline-warning logout" onClick={this.logout}>
+          <div className="navbar-right-div btn logout" onClick={this.logout}>
             Logout
           </div>
         </NavLink>
@@ -31,12 +31,12 @@ class Navbar extends Component {
     } else {
       loginLogout = (
         <NavLink to="/login">
-          <div className="navbar-right-div login">Login</div>
+          <div className="navbar-right-div btn login">Login</div>
         </NavLink>
       );
       signup = (
         <NavLink to="/signup">
-          <div className="navbar-right-div login">Signup</div>
+          <div className="navbar-right-div btn login">Signup</div>
         </NavLink>
       );
       navbarBrand = (
@@ -46,7 +46,7 @@ class Navbar extends Component {
       );
     }
     return (
-      <nav className="navbar justify-content-between mb-3">
+      <nav className="navbar justify-content-between mb-3 px-5">
         {navbarBrand}
         <div className="navbar justify-content-between">
           {signup}
