@@ -40,7 +40,7 @@ class NewEntryModal extends Component {
               type="text"
               className="form-control"
               id="entryName"
-              placeholder="i.e. item X"
+              placeholder="Item"
             />
           </div>
         </div>
@@ -53,7 +53,7 @@ class NewEntryModal extends Component {
               type="text"
               className="form-control"
               id="amount"
-              placeholder="i.e. 75.00"
+              placeholder="75.00"
             />
           </div>
         </div>
@@ -66,7 +66,7 @@ class NewEntryModal extends Component {
               type="text"
               className="form-control"
               id="description"
-              placeholder="i.e. bought for reason Y"
+              placeholder="Any additional notes"
             />
           </div>
         </div>

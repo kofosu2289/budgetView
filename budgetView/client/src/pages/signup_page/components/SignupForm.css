@@ -1,5 +1,4 @@
 .signup-new-user {
-  background: lightblue;
   padding: 15px;
   margin: auto;
   color: #374785;
@@ -8,17 +7,27 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background: linear-gradient(270deg, #4056a1, #fff6dd);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 15s ease infinite;
+  -moz-animation: AnimationName 15s ease infinite;
+  animation: AnimationName 15s ease infinite;
 }
 
-.signup-new-user .col-sm-6 {
-  max-width: none;
-  margin: auto;
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
-
-.signup-new-user .form-group {
-  width: 300px;
-  padding-top: 10px;
-  margin-bottom: 0px;
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 .btn-primary {

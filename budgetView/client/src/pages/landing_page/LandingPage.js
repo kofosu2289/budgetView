@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
 import Content from "./components/Content";
-import "./LandingPage.css";
+import LoginWithFacebook from "./components/FacebookLogin";
 
 class LandingPage extends Component {
   render() {
     return (
-      <Container className="landing-body">
-        <Content />
-      </Container>
+      <Content />
     );
   }
 }

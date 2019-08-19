@@ -51,12 +51,13 @@ class LoginForm extends Component {
       );
     }
     return (
-      <section className="login-existing-user">
-        <header className="login-page-header text-center my-3">
-          <h1>Login</h1>
-        </header>
+      <div className="login-existing-user">
         <div className="d-flex justify-content-center">
-          <form className="shadow p-3 mb-4 bg-white" onSubmit={this.onSave}>
+          <form
+            className="shadow py-4 px-5 mt-4 bg-white"
+            onSubmit={this.onSave}
+          >
+            <h1 className="text-center mb-2">Login</h1>
             <div className="form-group input">
               Email{" "}
               <input
@@ -84,15 +85,16 @@ class LoginForm extends Component {
             <div className="form-group submit text-center">
               <input type="submit" className="btn btn-primary" />
             </div>
+            {error}
+            <div className="login-message text-center">
+              <p>
+                Dont have an account? Click <a href="/signup">here</a> to sign
+                up.
+              </p>
+            </div>
           </form>
         </div>
-        {error}
-        <div className="login-message text-center">
-          <p>
-            Dont have an account? Click <a href="/signup">here</a> to sign up.
-          </p>
-        </div>
-      </section>
+      </div>
     );
   }
 }
