@@ -1,14 +1,19 @@
 .landing-content {
   color: #374785;
-  position: absolute;
-  top: 15rem;
+  position: relative;
+  top: 5rem;
   bottom: 0;
-  left: 5 rem;
+  left: 0;
   right: 0;
   background-image: url("./landing-page-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.landing-content-text {
+  top: 15rem;
+  left: 5rem;
 }
 .description {
   margin: 11rem 0 0 10.6rem;

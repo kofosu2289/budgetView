@@ -5,6 +5,7 @@ class Content extends Component {
   render() {
     return (
       <div className="landing-content">
+        <div className = "landing-content-text">
         <h1>Welcome to BudgetView!</h1>
         <h5 className="tagline">Your friendly budgeting buddy</h5>
         <p className="content-message">
@@ -13,6 +14,7 @@ class Content extends Component {
         <p className="content-message">
           Been here before? <a href="/login">Log in</a> to keep budgeting!
         </p>
+        </div>
       </div>
     );
   }
