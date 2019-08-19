@@ -13,7 +13,7 @@ import {
   faUtensils,
   faAsterisk,
   faShoppingBag
- 
+
 } from "@fortawesome/free-solid-svg-icons";
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
@@ -22,9 +22,11 @@ import BarGraphs from "./BarGraphs.js";
 import NewEntryModal from "../../expense_page/components/NewEntryModal";
 
 library.add(fab, faWineGlass, faMap, faTrain, faFilm, faUtensils, faHome, faAsterisk, faShoppingBag);
+
 const makeCardStack = (cards, update) => {
+  let card_count = 0;
   const allCards = cards.map(card => {
-    let icon_living = `${card["icon"]}`;
+  const icon_living = `${card["icon"]}`;
     switch (card["board_type"]) {
       case "expense":
         return (
@@ -47,7 +49,8 @@ const makeCardStack = (cards, update) => {
                   <Popup trigger={
                       <button
                         type="button"
-                        className="btn btn-outline-primary quick-entry-btn">
+                        className="btn btn-outline-primary quick-entry-btn"
+                      >
                         + Expense Entry
                       </button>
                     } modal closeOnDocumentClick >
@@ -64,6 +67,7 @@ const makeCardStack = (cards, update) => {
           </div>
         );
     }
+
   });
   return allCards;
 };
@@ -79,12 +83,13 @@ class ExpenseBoard extends Component {
         <Popup trigger={
             <button
               type="button"
-              className="btn btn-outline-primary category-btn" >
+              className="btn btn-outline-primary category-btn"
+            >
               Add Category
             </button>
           } modal closeOnDocumentClick >
           {close => (
-            <NewExpenseModal update={props.update} close={close.bind(this)} />
+            <NewExpenseModal   categories={props.categories} update={props.update} close={close.bind(this)} />
           )}
         </Popup>
       </div>
