@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import BarGraphs from "../home_page/components/BarGraphs";
 import ExpenseTable from "./components/ExpenseTable";
 import axios from "axios";

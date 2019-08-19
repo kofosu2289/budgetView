@@ -1,28 +1,56 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import { Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import IncomeTable from "./components/IncomeTable";
 import NewIncomeEntry from "./components/NewIncomeEntry";
 import axios from "axios";
 import Popup from "reactjs-popup";
 import { Redirect } from "react-router-dom";
 import "./IncomePage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class IncomePage extends Component {
-  update() {
+
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false,
+      orderBy: 'id desc'
+    };
+  }
+
+  update(order) {
     const { id } = this.props.match.params;
-    axios
-      .get(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${id}`)
-      .then(response => {
-        this.setState({
-          category: response.data[0],
-          entries: response.data[1]
-        });
-      })
-      .catch(error => console.log(error));
+    const params = { orderBy: (order || this.state.orderBy)}
+    axios.get(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${id}`, {params})
+         .then(response => {
+           this.setState({
+             category: response.data[0],
+             entries: response.data[1]
+           });
+         })
+         .catch(error => console.log(error));
+    }
+
+  changeOrder = event => {
+    event.preventDefault()
+    const newOrder = event.target.id
+    this.setState ({
+      orderBy: event.target.id
+    })
+    this.update(newOrder)
+  }
+
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
   }
 
   componentDidMount() {
-    this.update();
+    this.update(this.state.orderBy);
   }
 
   render() {
@@ -37,6 +65,7 @@ class IncomePage extends Component {
         {this.state &&
           this.state.entries && (
             <div className="income-page">
+            <a href="/home" className="btn btn-outline-primary px-4" id="income-go-home"><FontAwesomeIcon icon="home" /></a>
               <h1 className="text-center">{this.state.category.name}</h1>
               <h4 className="text-center mb-4 income-total">
                 Total - ${this.state.category.current_total}
@@ -62,7 +91,36 @@ class IncomePage extends Component {
                     />
                   )}
                 </Popup>
-                <a href="/home" className="btn btn-outline-primary px-4" id="income-go-home">Go Home</a>
+
+                                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                  <DropdownToggle caret>
+                                    Change View
+                                  </DropdownToggle>
+                                  <DropdownMenu>
+                                    <DropdownItem header>
+                                      Order By:
+                                    </DropdownItem>
+                                    <DropdownItem id='name' onClick={this.changeOrder}>
+                                      A - Z
+                                    </DropdownItem>
+                                    <DropdownItem id='date desc' onClick={this.changeOrder}>
+                                      Date - Newest
+                                    </DropdownItem>
+                                    <DropdownItem id='date asc' onClick={this.changeOrder}>
+                                      Date - Oldest
+                                    </DropdownItem>
+                                    <DropdownItem id='amount desc' onClick={this.changeOrder}>
+                                      $$$ - $
+                                    </DropdownItem>
+                                    <DropdownItem id='amount asc' onClick={this.changeOrder}>
+                                      $ - $$$
+                                    </DropdownItem>
+                                    <DropdownItem id='id desc' onClick={this.changeOrder}>
+                                      Last Added
+                                    </DropdownItem>
+                                  </DropdownMenu>
+                                </Dropdown>
+
               </div>
               <IncomeTable
                 entries={this.state.entries}
