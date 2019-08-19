@@ -33,7 +33,7 @@ class SignupForm extends Component {
       user: this.state.credentials
     };
 
-    axios.post(`http://localhost:3001/api/v1/users`, user).then(res => {
+    axios.post(`https://desolate-badlands-77534.herokuapp.com/api/v1/users`, user).then(res => {
       if (res.status === 204) {
         this.setState({ error: true });
       } else {

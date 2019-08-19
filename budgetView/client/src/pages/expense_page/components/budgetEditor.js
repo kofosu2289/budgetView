@@ -8,7 +8,7 @@ class BudgetEditor extends Component {
     const category = this.props.category
     const newGoal = event.target.maxGoal.value;
 
-    axios.put(`http://localhost:3001/api/v1/category/${category.id}.json`, { newGoal })
+    axios.put(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${category.id}.json`, { newGoal })
       .then(res => {
         this.props.update();
         this.props.close();

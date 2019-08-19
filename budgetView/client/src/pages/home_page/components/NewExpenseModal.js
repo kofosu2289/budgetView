@@ -52,7 +52,7 @@ class NewExpenseModal extends Component {
     };
 
 
-    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+    axios.post(`https://desolate-badlands-77534.herokuapp.com/api/v1/category.json`, { category })
       .then(res => {
         this.props.update()
         this.props.close()

@@ -13,7 +13,7 @@ class ExpensePage extends Component {
   update() {
     const id = this.props.match.params["id"];
     axios
-      .get(`http://localhost:3001/api/v1/category/${id}.json`)
+      .get(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${id}.json`)
       .then(response => {
         this.setState({
           category: response.data[0],

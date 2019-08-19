@@ -27,7 +27,7 @@ class LoginForm extends Component {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:3001/api/v1/sessions`, { ...this.state.credentials })
+      .post(`https://desolate-badlands-77534.herokuapp.com/api/v1/sessions`, { ...this.state.credentials })
       .then(res => {
         const token = res.data.jwt;
         const id = res.data.id;

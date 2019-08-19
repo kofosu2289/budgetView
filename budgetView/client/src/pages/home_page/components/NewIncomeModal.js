@@ -13,7 +13,7 @@ class NewIncomeModal extends Component {
       user_id: localStorage.getItem('currUser_id'),
     };
 
-    axios.post(`http://localhost:3001/api/v1/category.json`, { category }).then(res => {
+    axios.post(`https://desolate-badlands-77534.herokuapp.com/api/v1/category.json`, { category }).then(res => {
       this.props.update();
       this.props.close();
     });

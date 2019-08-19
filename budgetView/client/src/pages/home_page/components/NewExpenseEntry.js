@@ -16,7 +16,7 @@ class NewExpenseEntry extends Component {
       category_id: this.props.category.id,
     };
 
-    axios.post(`http://localhost:3001/api/v1/entry.json`, { entry })
+    axios.post(`https://desolate-badlands-77534.herokuapp.com/api/v1/entry.json`, { entry })
       .then(res => {
         this.props.update()
       })

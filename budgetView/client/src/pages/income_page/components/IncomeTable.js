@@ -47,7 +47,7 @@ class IncomeTable extends Component {
 
     const category_id = this.props.id;
 
-    axios.delete(`http://localhost:3001/api/v1/category/${category_id}`).then(res => {
+    axios.delete(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${category_id}`).then(res => {
       this.props.updateHome();
       this.setState({
         deleted: true
@@ -56,7 +56,7 @@ class IncomeTable extends Component {
   };
 
   deleteEntry = entry_id => {
-    axios.delete(`http://localhost:3001/api/v1/entry/${entry_id}`).then(res => {
+    axios.delete(`https://desolate-badlands-77534.herokuapp.com/api/v1/entry/${entry_id}`).then(res => {
       this.props.update();
       this.props.updateHome();
     });

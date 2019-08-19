@@ -11,7 +11,7 @@ class IncomePage extends Component {
   update() {
     const { id } = this.props.match.params;
     axios
-      .get(`http://localhost:3001/api/v1/category/${id}`)
+      .get(`https://desolate-badlands-77534.herokuapp.com/api/v1/category/${id}`)
       .then(response => {
         this.setState({
           category: response.data[0],

@@ -15,7 +15,7 @@ class NewIncomeEntry extends Component {
     };
 
     axios
-      .post("http://localhost:3001/api/v1/entry.json", { entry })
+      .post("https://desolate-badlands-77534.herokuapp.com/api/v1/entry.json", { entry })
       .then(response => {
         this.props.update();
         this.props.updateHome();

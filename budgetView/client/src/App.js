@@ -36,7 +36,7 @@ class App extends Component {
   update() {
     const currUser = localStorage.getItem("currUser_id");
     axios
-      .get("http://localhost:3001/api/v1/category", {
+      .get("https://desolate-badlands-77534.herokuapp.com/api/v1/category", {
         params: { user_id: currUser }
       })
       .then(response => {
