@@ -45,11 +45,11 @@ class ExpensePage extends Component {
               <BarGraphs card={this.state.category} />
               <div className="mt-4 mb-2" id="expense-buttons">
                 <Popup trigger={
-                    <button
-                      type="button"
-                      className="btn btn-outline-primary px-4" >
-                      Add Entry
-                    </button> } modal closeOnDocumentClick   >
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary px-4" >
+                    Add Entry
+                    </button>} modal closeOnDocumentClick   >
                   {close => (
                     <NewEntryModal
                       update={this.update.bind(this)}
@@ -60,11 +60,11 @@ class ExpensePage extends Component {
                   )}
                 </Popup>
                 <Popup trigger={
-                    <button
-                      type="button"
-                      className="btn btn-outline-primary px-4" >
-                      Edit Budget Amount
-                    </button> } modal closeOnDocumentClick >
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary px-4" >
+                    Edit Budget Amount
+                    </button>} modal closeOnDocumentClick >
                   {close => (
                     <BudgetEditor
                       update={this.update.bind(this)}

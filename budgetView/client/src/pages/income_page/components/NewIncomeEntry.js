@@ -26,7 +26,7 @@ class NewIncomeEntry extends Component {
 
   render() {
     return (
-      <form className="income-entry-form text-center"onSubmit={this.handleClick}>
+      <form className="income-entry-form text-center" onSubmit={this.handleClick}>
         <h4 className="py-4">Add New Entry:</h4>
         <div className="form-group row px-4">
           <label htmlFor="entryName" className="col-sm-3 col-form-label">

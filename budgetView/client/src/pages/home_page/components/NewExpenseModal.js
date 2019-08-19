@@ -7,57 +7,57 @@ class NewExpenseModal extends Component {
 
   submitNewCategory = event => {
 
-      event.preventDefault();
+    event.preventDefault();
 
 
-      let icon_name = ''
+    let icon_name = ''
 
-      if (event.target.exampleFormControlSelect1.value === 'Food'){
-        icon_name = 'utensils'
+    if (event.target.exampleFormControlSelect1.value === 'Food') {
+      icon_name = 'utensils'
 
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Transportation'){
-        icon_name = 'train'
-
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Home Expenses'){
-        icon_name = 'home'
-        
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Entertainment'){
-        icon_name = 'film'
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Shopping'){
-        icon_name = 'shopping-bag'
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Alcohol'){
-        icon_name = 'wine-glass'
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Vacation'){
-        icon_name = 'map'
-      }
-      else if (event.target.exampleFormControlSelect1.value === 'Other'){
-        icon_name = 'asterisk'
-      }
-
-
-     
-        const category = {
-          name: event.target.categoryName.value,
-          board_type: 'expense',
-          icon: icon_name,
-          goal: event.target.maxGoal.value,
-          current_total: 0,
-          user_id: localStorage.getItem('currUser_id'),
-      };
-
-
-      axios.post(`http://localhost:3001/api/v1/category.json`, { category })
-        .then(res => {        
-          this.props.update()
-          this.props.close()
-        })
     }
+    else if (event.target.exampleFormControlSelect1.value === 'Transportation') {
+      icon_name = 'train'
+
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Home Expenses') {
+      icon_name = 'home'
+
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Entertainment') {
+      icon_name = 'film'
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Shopping') {
+      icon_name = 'shopping-bag'
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Alcohol') {
+      icon_name = 'wine-glass'
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Vacation') {
+      icon_name = 'map'
+    }
+    else if (event.target.exampleFormControlSelect1.value === 'Other') {
+      icon_name = 'asterisk'
+    }
+
+
+
+    const category = {
+      name: event.target.categoryName.value,
+      board_type: 'expense',
+      icon: icon_name,
+      goal: event.target.maxGoal.value,
+      current_total: 0,
+      user_id: localStorage.getItem('currUser_id'),
+    };
+
+
+    axios.post(`http://localhost:3001/api/v1/category.json`, { category })
+      .then(res => {
+        this.props.update()
+        this.props.close()
+      })
+  }
 
 
   render() {
