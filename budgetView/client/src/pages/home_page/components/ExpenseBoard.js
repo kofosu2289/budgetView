@@ -4,13 +4,16 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
-  faCheckSquare,
-  faCoffee,
+
   faMap,
   faTrain,
-  faPhone,
-  faFood,
-  faUtensils
+  faFilm,
+  faHome,
+  faWineGlass,
+  faUtensils,
+  faAsterisk,
+  faShoppingBag
+ 
 } from "@fortawesome/free-solid-svg-icons";
 import NewExpenseModal from "./NewExpenseModal";
 import Popup from "reactjs-popup";
@@ -18,8 +21,7 @@ import { NavLink } from "react-router-dom";
 import BarGraphs from "./BarGraphs.js";
 import NewEntryModal from "../../expense_page/components/NewEntryModal";
 
-library.add(fab, faCheckSquare, faCoffee, faMap, faTrain, faPhone, faUtensils);
-
+library.add(fab, faWineGlass, faMap, faTrain, faFilm, faUtensils, faHome, faAsterisk, faShoppingBag);
 const makeCardStack = (cards, update) => {
   const allCards = cards.map(card => {
     let icon_living = `${card["icon"]}`;
