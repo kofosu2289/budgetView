@@ -1,4 +1,4 @@
-# BudgetVue
+# BudgetView
 
 ### Core Functionality
 - User will be able to register/login
