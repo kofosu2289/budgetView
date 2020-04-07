@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.update();
+    this.update();
   }
 
   render() {
