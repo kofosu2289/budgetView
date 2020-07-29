@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import BarGraphs from "../home_page/components/BarGraphs";
-import ExpenseTable from "./components/ExpenseTable";
+import BarGraphs from "../HomePage/components/BarGraphs/BarGraphs";
+import ExpenseTable from "./components//ExpenseTable/ExpenseTable";
 import axios from "axios";
-import NewEntryModal from "./components/NewEntryModal";
-import BudgetEditor from "./components/budgetEditor";
+import NewEntryModal from "./components/NewEntryModal/NewEntryModal";
+import BudgetEditor from "./components/BudgetEditor/BudgetEditor";
 import Popup from "reactjs-popup";
 import { Redirect } from "react-router-dom";
 import "./ExpensePage.css";

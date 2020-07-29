@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./HomePage.css";
 import { Container, Row } from "reactstrap";
-import ExpenseBoard from "./components/ExpenseBoard";
-import Summary from "./components/Summary";
-import IncomeBoard from "./components/IncomeBoard";
-import Rundown from "./components/Rundown";
+import ExpenseBoard from "./components/ExpenseBoard/ExpenseBoard";
+import Summary from "./components//Summary/Summary";
+import IncomeBoard from "./components/IncomeBoard/IncomeBoard";
+import Rundown from "./components/Rundown/Rundown";
 import Notifications from './components/Notifications'
-import Footer from "../../global_components/Footer";
+import Footer from "../../global_components/Footer/Footer";
 import { Redirect } from 'react-router-dom';
 
 class HomePage extends Component {

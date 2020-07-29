@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import IncomeTable from "./components/IncomeTable";
-import NewIncomeEntry from "./components/NewIncomeEntry";
+import IncomeTable from "./components/IncomeTable/IncomeTable";
+import NewIncomeEntry from "./components/NewIncomeEntry/NewIncomeEntry";
 import axios from "axios";
 import Popup from "reactjs-popup";
 import { Redirect } from "react-router-dom";

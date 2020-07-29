@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./budgetEditor.css";
+import "./BudgetEditor.css";
 
 class BudgetEditor extends Component {
   editCategory = event => {

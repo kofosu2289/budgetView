@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./IncomeBoard.css";
-import NewIncomeModal from "./NewIncomeModal";
+import NewIncomeModal from "../NewIncomeModal/NewIncomeModal";
 import Popup from "reactjs-popup";
 import { NavLink } from "react-router-dom";
 

@@ -26,7 +26,7 @@ class Navbar extends Component {
       navbarBrand = (
         <NavLink to="/home">
           <div className="navbar-brand">
-            <img src={require("./logo.png")} width="40" height="30" className="mr-1" alt="BudgetView logo"/>
+            <img src={require("../logo.png")} width="40" height="30" className="mr-1" alt="BudgetView logo"/>
             BudgetView
           </div>
         </NavLink>
@@ -45,7 +45,7 @@ class Navbar extends Component {
       navbarBrand = (
         <NavLink to="/">
           <div className="navbar-brand">
-            <img src={require("./logo.png")} width="40" height="30" className="mr-1" alt="BudgetView logo"/>
+            <img src={require("../logo.png")} width="40" height="30" className="mr-1" alt="BudgetView logo"/>
             BudgetView
           </div>
         </NavLink>

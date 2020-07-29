@@ -15,11 +15,11 @@ import {
   faShoppingBag
 
 } from "@fortawesome/free-solid-svg-icons";
-import NewExpenseModal from "./NewExpenseModal";
+import NewExpenseModal from "../NewExpenseModal/NewExpenseModal";
 import Popup from "reactjs-popup";
 import { NavLink } from "react-router-dom";
-import BarGraphs from "./BarGraphs.js";
-import NewEntryModal from "../../expense_page/components/NewEntryModal";
+import BarGraphs from "../BarGraphs/BarGraphs";
+import NewEntryModal from "../../../ExpensePage/components/NewEntryModal/NewEntryModal";
 
 library.add(fab, faWineGlass, faMap, faTrain, faFilm, faUtensils, faHome, faAsterisk, faShoppingBag);
 
